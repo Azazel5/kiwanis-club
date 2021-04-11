@@ -1,0 +1,30 @@
+.navigation-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6.5rem;
+    width: 100%;
+    transition: all 0.5s;
+
+    &__flexbox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.5s;
+
+        & div:nth-last-child(2) {
+            margin-right: auto;
+        }
+
+        & div {
+            cursor: pointer;
+            padding: 1rem 0.8rem;
+        }
+    }
+
+    &__icon {
+        height: 3.5rem;
+        width: 5.5rem;
+        fill: white;
+    }
+}
