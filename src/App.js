@@ -3,10 +3,12 @@ import './App.scss'
 
 import Navigation from './components/navigation/navigation'
 import headerPhoto from './assets/Images/header-photo.jpeg'
+import MenuOverlay from './components/MenuOverlay/MenuOverlay'
 
 const App = () => {
     /** State variables **/
     const [navbarScrolled, setNavbarScrolled] = useState(false)
+    const [menuClicked, setMenuClicked] = useState(false)
 
     /** Event Handlers **/
 
@@ -19,6 +21,13 @@ const App = () => {
         }
     }, [navbarScrolled])
 
+    // Sets the menuButtonClicked state to the opposite of previous value. This event handler is
+    // passed to the navigation child component so its child (the actual div element) can call
+    // it onClick.
+    const menuButtonClickHandler = () => {
+        setMenuClicked(prevMenuClicked => !prevMenuClicked)
+    }
+
     /** Effects **/
     useEffect(() => {
         document.addEventListener('scroll', navbarScrollStateHandler)
@@ -29,7 +38,10 @@ const App = () => {
 
     return (
         <div className="app">
-            <Navigation navbarScrolled={navbarScrolled} />
+            {menuClicked && <MenuOverlay />}
+            <Navigation
+                navbarScrolled={navbarScrolled} menuClicked={menuClicked}
+                menuButtonClickHandler={menuButtonClickHandler} />
 
             <div className="app_image-container">
                 <img src={headerPhoto} alt="header" className="app_image-container__image" />

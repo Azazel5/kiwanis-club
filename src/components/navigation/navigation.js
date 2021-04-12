@@ -3,15 +3,22 @@ import './navigation.scss'
 
 import logo from '../../assets/Images/kiwanis-logo.png'
 import title from '../../assets/Images/kiwanis-title.png'
-import Symbols from '../../assets/SVG/basic-symbols.svg'
 
 const Navigation = props => {
     /** Props variables **/
-    const { navbarScrolled } = props
+    const { navbarScrolled, menuButtonClickHandler, menuClicked } = props
 
     /** Inline styles **/
-    const navbarInlineStyles = { backgroundColor: navbarScrolled ? 'white' : 'transparent' }
-    const flexboxInlineStyle = { filter: navbarScrolled && 'invert(1)' }
+
+    // Sets the menuButton animation styles, based on the menuClicked prop passed from App.js
+    const menuButtonClasses = ['navigation-bar__icon', menuClicked ? 'navigation-bar__icon--cross' : 'navigation-bar__icon--flat']
+
+    // Change navbar color when user scrolls past navbar height
+    const navbarInlineStyles = { backgroundColor: navbarScrolled && !menuClicked ? 'white' : 'transparent' }
+
+    // Set navbar elements color to be black when navbar has been scrolled or the menu button has been
+    // clicked
+    const flexboxInlineStyle = { filter: (navbarScrolled || menuClicked) && 'invert(1)' }
 
     return (
         <nav className="navigation-bar" style={navbarInlineStyles}>
@@ -24,10 +31,8 @@ const Navigation = props => {
                     <img src={title} alt="kiwanis title" />
                 </div>
 
-                <div>
-                    <svg className="navigation-bar__icon">
-                        <use xlinkHref={`${Symbols}#icon-menu`}></use>
-                    </svg>
+                <div onClick={menuButtonClickHandler}>
+                    <div className={menuButtonClasses.join(" ")}></div>
                 </div>
             </div>
         </nav>
