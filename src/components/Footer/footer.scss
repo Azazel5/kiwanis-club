@@ -1,0 +1,46 @@
+.footer {
+    font-size: 1.8rem;
+
+    &__top {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-evenly;
+        height: 40rem;
+        background-color: #303030;
+        color: white;
+
+        &-child {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 3rem;
+            width: 20%;
+
+            & > *:not(:last-child) {
+                margin-bottom: 1rem;
+            }
+
+            & a:visited,
+            & a:link {
+                text-decoration: none;
+                border: none;
+                color: white;
+            }
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        height: 6rem;
+        background-color: #202020;
+        color: #838383;
+    }
+}
+
+.solid {
+    border-top: 0.5px solid #bbb;
+    width: 100%;
+}

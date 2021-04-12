@@ -4,6 +4,7 @@ import './App.scss'
 import Navigation from './components/navigation/navigation'
 import headerPhoto from './assets/Images/header-photo.jpeg'
 import MenuOverlay from './components/MenuOverlay/MenuOverlay'
+import Footer from './components/Footer/footer'
 
 const App = () => {
     /** State variables **/
@@ -38,7 +39,7 @@ const App = () => {
 
     return (
         <div className="app">
-            {menuClicked && <MenuOverlay />}
+            <MenuOverlay menuClicked={menuClicked} />
             <Navigation
                 navbarScrolled={navbarScrolled} menuClicked={menuClicked}
                 menuButtonClickHandler={menuButtonClickHandler} />
@@ -50,6 +51,8 @@ const App = () => {
             <div className="test">
                 More content
             </div>
+
+            <Footer />
         </div>
     );
 }

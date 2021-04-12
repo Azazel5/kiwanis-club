@@ -1,9 +1,19 @@
 import './MenuOverlay.scss'
 
+import { CSSTransition } from 'react-transition-group'
+
 const MenuOverlay = props => {
+    const { menuClicked } = props
+
     return (
-        <div className="menu-overlay">
-        </div>
+        <CSSTransition
+            in={menuClicked}
+            timeout={700}
+            classNames="overlay-animation"
+            unmountOnExit
+        >
+            <div className="menu-overlay"></div>
+        </CSSTransition>
     )
 }
 
