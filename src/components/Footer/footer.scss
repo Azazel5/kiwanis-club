@@ -25,6 +25,11 @@
                 text-decoration: none;
                 border: none;
                 color: white;
+                transition: color .2s;
+
+                &:hover {
+                    color: #b49759;
+                }
             }
         }
     }
@@ -37,6 +42,37 @@
         height: 6rem;
         background-color: #202020;
         color: #838383;
+    }
+}
+
+.social-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+
+    &__svg {
+        cursor: pointer;
+        width: 2.8rem;
+        height: 2.8rem;
+
+        &--social {
+            fill: white;
+        }
+
+        &--nonsocial {
+            fill: #b49759;
+        }
+    }
+}
+
+.contact-phone-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+
+    & p {
+        width: 80%;
     }
 }
 
