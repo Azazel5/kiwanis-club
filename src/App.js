@@ -4,6 +4,7 @@ import './App.scss'
 import Navigation from './components/navigation/navigation'
 import headerPhoto from './assets/Images/header-photo.jpeg'
 import MenuOverlay from './components/MenuOverlay/MenuOverlay'
+import ImageGallery from './containers/ImageGallery/ImageGallery'
 import Footer from './components/Footer/footer'
 
 const App = () => {
@@ -48,9 +49,7 @@ const App = () => {
                 <img src={headerPhoto} alt="header" className="app_image-container__image" />
             </div>
 
-            <div className="test">
-                More content
-            </div>
+            <ImageGallery />
 
             <Footer />
         </div>
