@@ -1,20 +1,30 @@
+import { useState } from 'react'
 import './ImageGallery.scss'
 
-// Remove this after pushing the images to a backend 
-import Image1 from '../../assets/Images/pic1.jpg'
-import Image2 from '../../assets/Images/pic2.jpg'
-import Image3 from '../../assets/Images/pic3.jpg'
-import Image4 from '../../assets/Images/pic4.jpg'
-import Image5 from '../../assets/Images/pic5.jpg'
-import Image6 from '../../assets/Images/pic6.jpg'
+import { ImageJson } from './ImageContent'
+import ImageModal from '../../components/ImageModal/ImageModal'
+import { CSSTransition } from 'react-transition-group'
 
 const ImageGallery = props => {
-    const images = [Image1, Image2, Image3, Image4, Image5, Image6]
+    /** State variables **/
+    const [modalOpen, setModalOpen] = useState(false)
+    const [selectedImage, setSelectedImage] = useState(null);
 
-    const galleryItems = images.map((image, index) => {
+    /** Event handlers **/
+    const setModalStateHandler = (key) => {
+        setModalOpen(true)
+        setSelectedImage(ImageJson[key])
+    }
+
+    const closeModalHandler = () => {
+        setModalOpen(false)
+    }
+
+    /** Higher order functions **/
+    const galleryItems = Object.keys(ImageJson).map(key => {
         return (
-            <div className="image-container" key={index}>
-                <img src={image} alt="distribution" className="image-container__item" />
+            <div className="image-container" key={key} onClick={() => setModalStateHandler(key)}>
+                <img src={ImageJson[key]["path"]} alt="distribution" className="image-container__item" />
             </div>
         )
     })
@@ -23,6 +33,16 @@ const ImageGallery = props => {
         <div className="image-gallery">
             <h2>Recent Highlights</h2>
             <div className="image-gallery__box">{galleryItems}</div>
+            <CSSTransition
+                in={modalOpen}
+                timeout={700}
+                classNames="image-modal-animation"
+                unmountOnExit
+            >
+                <ImageModal 
+                    selectedImage={selectedImage} modalOpen={modalOpen}
+                    closeModalHandler={closeModalHandler} />
+            </CSSTransition>
         </div>
     )
 }
