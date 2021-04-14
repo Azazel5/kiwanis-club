@@ -12,7 +12,13 @@ const MenuOverlay = props => {
             classNames="overlay-animation"
             unmountOnExit
         >
-            <div className="menu-overlay"></div>
+            <div className="menu-overlay">
+                <div className="menu-overlay__container">
+                    <div className="menu-overlay__container__item">Events</div>
+                    <div className="menu-overlay__container__item">Projects</div>
+                    <div className="menu-overlay__container__item">About Us</div>
+                </div>
+            </div>
         </CSSTransition>
     )
 }

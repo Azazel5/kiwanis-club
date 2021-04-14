@@ -9,7 +9,7 @@ import Image6 from '../../assets/Images/pic6.jpg'
 export const ImageJson = {
     "image1": {
         "path": Image1,
-        "description": "Image 1 description"
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime praesentium sit quos nobis, iure excepturi minima veritatis explicabo asperiores magnam velit sint harum porro aspernatur doloribus. Sequi ullam omnis itaque."
     },
 
     "image2": {
