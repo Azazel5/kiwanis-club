@@ -13,6 +13,9 @@ const ImageGallery = props => {
     const [disableScroll, setDisableScroll] = useState({ leftButton: true, rightButton: false })
     const galleryBoxRef = useRef()
 
+    // A ref which is passed to the modal so it can attach it to the image-modal__box div 
+    const modalBoxRef = useRef()
+
     /** Event handlers **/
     const setModalStateHandler = (key) => {
         setModalOpen(true)
@@ -70,7 +73,7 @@ const ImageGallery = props => {
             >
                 <ImageModal
                     selectedImage={selectedImage} modalOpen={modalOpen}
-                    closeModalHandler={closeModalHandler} />
+                    closeModalHandler={closeModalHandler} modalBoxRef={modalBoxRef} />
             </CSSTransition>
 
             <div className="image-gallery__button-container">
