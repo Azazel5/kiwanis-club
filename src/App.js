@@ -4,6 +4,7 @@ import './App.scss'
 import Navigation from './components/navigation/navigation'
 import headerPhoto from './assets/Images/header-photo.jpeg'
 import MenuOverlay from './components/MenuOverlay/MenuOverlay'
+import NewsSection from './components/NewsSection/NewsSection'
 import ImageGallery from './containers/ImageGallery/ImageGallery'
 import Footer from './components/Footer/footer'
 
@@ -59,6 +60,8 @@ const App = () => {
                     Vestibulum hendrerit ut sem molestie aliquet. In eget aliquam ligula. Sed diam urna, auctor finibus nunc aliquam, tempor mollis libero. Pellentesque varius tincidunt ullamcorper. Vivamus suscipit tortor sed facilisis mattis. In aliquam odio a sapien porttitor posuere. Nam porttitor faucibus felis eget cursus.
                 </p>
             </div>
+
+            <NewsSection />
 
             <ImageGallery />
 
