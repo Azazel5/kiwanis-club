@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState } from 'react'
-import './App.scss'
+import { Route } from 'react-router-dom'
 
+import './App.scss'
 import Navigation from './components/navigation/navigation'
 import headerPhoto from './assets/Images/header-photo.jpeg'
 import MenuOverlay from './components/MenuOverlay/MenuOverlay'
-import NewsSection from './components/NewsSection/NewsSection'
+import NewsGallery from './components/NewsSection/NewsGallery/NewsGallery'
+import NewsStory from './components/NewsSection/NewsStory/NewsStory'
 import ImageGallery from './containers/ImageGallery/ImageGallery'
 import Footer from './components/Footer/footer'
 
@@ -40,33 +42,43 @@ const App = () => {
     }, [navbarScrollStateHandler])
 
     return (
-        <div className="app">
-            <MenuOverlay menuClicked={menuClicked} />
-            <Navigation
-                navbarScrolled={navbarScrolled} menuClicked={menuClicked}
-                menuButtonClickHandler={menuButtonClickHandler} />
+        <>
+            <Route exact path="/">
+                <div className="app">
+                    <MenuOverlay menuClicked={menuClicked} />
+                    <Navigation
+                        navbarScrolled={navbarScrolled} menuClicked={menuClicked}
+                        menuButtonClickHandler={menuButtonClickHandler} />
 
-            <div className="app__image-container">
-                <img src={headerPhoto} alt="header" className="app__image-container__image" />
-            </div>
+                    <div className="app__image-container">
+                        <img src={headerPhoto} alt="header" className="app__image-container__image" />
+                    </div>
 
-            <div className="app__purpose-container">
-                <h2>Our Purpose</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt sem quis neque sagittis congue a quis neque. Mauris turpis magna, accumsan ut tellus ac, gravida viverra augue. Aliquam erat volutpat. Nam in placerat dui. Maecenas tincidunt lobortis facilisis. Etiam pharetra lorem at nulla sagittis, ut gravida lacus convallis. Donec eros odio, mollis vitae dapibus et, pulvinar ut odio. Sed porta orci ut ullamcorper ultricies. Vivamus suscipit turpis at nisi semper, sit amet vestibulum est commodo. Maecenas consequat lobortis enim, a euismod quam sodales et. Vestibulum tempor vulputate sem, nec ullamcorper nibh suscipit aliquet.
+                    <div className="app__purpose-container">
+                        <h2>Our Purpose</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt sem quis neque sagittis congue a quis neque. Mauris turpis magna, accumsan ut tellus ac, gravida viverra augue. Aliquam erat volutpat. Nam in placerat dui. Maecenas tincidunt lobortis facilisis. Etiam pharetra lorem at nulla sagittis, ut gravida lacus convallis. Donec eros odio, mollis vitae dapibus et, pulvinar ut odio. Sed porta orci ut ullamcorper ultricies. Vivamus suscipit turpis at nisi semper, sit amet vestibulum est commodo. Maecenas consequat lobortis enim, a euismod quam sodales et. Vestibulum tempor vulputate sem, nec ullamcorper nibh suscipit aliquet.
 
-                    Maecenas vel posuere magna. Phasellus sagittis lectus quam, vitae scelerisque diam vestibulum at. Nullam risus magna, cursus ut lorem vitae, finibus laoreet eros. Integer vulputate tincidunt magna sed rutrum. Pellentesque suscipit posuere molestie. In consectetur eu risus sit amet mollis. Fusce non risus vel lectus vehicula suscipit vel sed magna.
+                            Maecenas vel posuere magna. Phasellus sagittis lectus quam, vitae scelerisque diam vestibulum at. Nullam risus magna, cursus ut lorem vitae, finibus laoreet eros. Integer vulputate tincidunt magna sed rutrum. Pellentesque suscipit posuere molestie. In consectetur eu risus sit amet mollis. Fusce non risus vel lectus vehicula suscipit vel sed magna.
 
-                    Vestibulum hendrerit ut sem molestie aliquet. In eget aliquam ligula. Sed diam urna, auctor finibus nunc aliquam, tempor mollis libero. Pellentesque varius tincidunt ullamcorper. Vivamus suscipit tortor sed facilisis mattis. In aliquam odio a sapien porttitor posuere. Nam porttitor faucibus felis eget cursus.
+                            Vestibulum hendrerit ut sem molestie aliquet. In eget aliquam ligula. Sed diam urna, auctor finibus nunc aliquam, tempor mollis libero. Pellentesque varius tincidunt ullamcorper. Vivamus suscipit tortor sed facilisis mattis. In aliquam odio a sapien porttitor posuere. Nam porttitor faucibus felis eget cursus.
                 </p>
-            </div>
+                    </div>
 
-            <NewsSection />
+                    <NewsGallery />
 
-            <ImageGallery />
+                    <ImageGallery />
+
+                </div>
+
+            </Route>
+
+            <Route exact path="/news/:newsId">
+                <NewsStory />
+            </Route>
 
             <Footer />
-        </div>
+        </>
     );
 }
 

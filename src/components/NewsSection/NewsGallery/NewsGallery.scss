@@ -47,6 +47,7 @@
         height: 100%;
         object-fit: cover;
         transition: transform 0.7s;
+        z-index: 1;
 
         &:hover {
             transform: scale(1.03);
@@ -56,9 +57,17 @@
 
 .text {
     position: absolute;
-    bottom: 5rem;
+    z-index: 10;
+    bottom: 0;
     color: white;
     padding: 0rem 3rem;
+
+    // Gotta do this once again because text falls over its sibling image, so the transition 
+    // effect must persist here as well. I would place it in the parent div but that will 
+    // cause problems with the overflow: hidden, so this is the simplest solution.
+    &:hover ~ .news-section__img {
+        transform: scale(1.03);
+    }
 }
 
 .item {
