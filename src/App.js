@@ -45,10 +45,6 @@ const App = () => {
         <>
             <Route exact path="/">
                 <div className="app">
-                    <MenuOverlay menuClicked={menuClicked} />
-                    <Navigation
-                        navbarScrolled={navbarScrolled} menuClicked={menuClicked}
-                        menuButtonClickHandler={menuButtonClickHandler} />
 
                     <div className="app__image-container">
                         <img src={headerPhoto} alt="header" className="app__image-container__image" />
@@ -62,7 +58,8 @@ const App = () => {
                             Maecenas vel posuere magna. Phasellus sagittis lectus quam, vitae scelerisque diam vestibulum at. Nullam risus magna, cursus ut lorem vitae, finibus laoreet eros. Integer vulputate tincidunt magna sed rutrum. Pellentesque suscipit posuere molestie. In consectetur eu risus sit amet mollis. Fusce non risus vel lectus vehicula suscipit vel sed magna.
 
                             Vestibulum hendrerit ut sem molestie aliquet. In eget aliquam ligula. Sed diam urna, auctor finibus nunc aliquam, tempor mollis libero. Pellentesque varius tincidunt ullamcorper. Vivamus suscipit tortor sed facilisis mattis. In aliquam odio a sapien porttitor posuere. Nam porttitor faucibus felis eget cursus.
-                </p>
+                        
+                        </p>
                     </div>
 
                     <NewsGallery />
@@ -77,7 +74,13 @@ const App = () => {
                 <NewsStory />
             </Route>
 
+            <Navigation
+                navbarScrolled={navbarScrolled} menuClicked={menuClicked}
+                menuButtonClickHandler={menuButtonClickHandler} />
+
             <Footer />
+
+            <MenuOverlay menuClicked={menuClicked} menuButtonClickHandler={menuButtonClickHandler}/>
         </>
     );
 }

@@ -1,9 +1,20 @@
 import './MenuOverlay.scss'
 
 import { CSSTransition } from 'react-transition-group'
+import { useHistory } from 'react-router-dom'
 
 const MenuOverlay = props => {
-    const { menuClicked } = props
+    // Third party hooks 
+    const history = useHistory()
+
+    // Props variables
+    const { menuClicked, menuButtonClickHandler } = props
+
+    // Event Handlers 
+    const menuItemClickhandler = (nextUrl) => {
+        history.push(nextUrl)
+        menuButtonClickHandler()
+    }
 
     return (
         <CSSTransition
@@ -14,6 +25,7 @@ const MenuOverlay = props => {
         >
             <div className="menu-overlay">
                 <div className="menu-overlay__container">
+                    <div className="menu-overlay__container__item" onClick={() => menuItemClickhandler("/")}>Home</div>
                     <div className="menu-overlay__container__item">Events</div>
                     <div className="menu-overlay__container__item">Projects</div>
                     <div className="menu-overlay__container__item">About Us</div>
