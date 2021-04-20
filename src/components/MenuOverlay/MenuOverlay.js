@@ -13,7 +13,6 @@ const MenuOverlay = props => {
     // Event Handlers 
     const menuItemClickhandler = (nextUrl) => {
         history.push(nextUrl)
-        console.log("Next url is " + nextUrl);
         menuButtonClickHandler()
     }
 
