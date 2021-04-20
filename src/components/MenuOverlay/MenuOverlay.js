@@ -13,6 +13,7 @@ const MenuOverlay = props => {
     // Event Handlers 
     const menuItemClickhandler = (nextUrl) => {
         history.push(nextUrl)
+        console.log("Next url is " + nextUrl);
         menuButtonClickHandler()
     }
 
@@ -28,7 +29,7 @@ const MenuOverlay = props => {
                     <div className="menu-overlay__container__item" onClick={() => menuItemClickhandler("/")}>Home</div>
                     <div className="menu-overlay__container__item">Events</div>
                     <div className="menu-overlay__container__item">Projects</div>
-                    <div className="menu-overlay__container__item">About Us</div>
+                    <div className="menu-overlay__container__item" onClick={() => menuItemClickhandler("/about")}>About Us</div>
                 </div>
             </div>
         </CSSTransition>

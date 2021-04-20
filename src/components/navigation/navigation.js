@@ -16,7 +16,7 @@ const Navigation = props => {
     const menuButtonClasses = ['navigation-bar__icon', menuClicked ? 'navigation-bar__icon--cross' : 'navigation-bar__icon--flat']
 
     // Change navbar color when user scrolls past navbar height
-    const navbarInlineStyles = { backgroundColor: navbarScrolled && !menuClicked ? 'white' : 'transparent' }
+    const navbarInlineStyles = { backgroundColor: (navbarScrolled && !menuClicked) || location.pathname !== "/" ? 'white' : 'transparent' }
 
     // Set navbar elements color to be black when navbar has been scrolled, the menu button has been
     // clicked, or when the page is anything besides the homepage
