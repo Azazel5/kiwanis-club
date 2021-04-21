@@ -12,14 +12,19 @@
         justify-content: space-between;
         align-items: center;
         transition: all 0.5s;
+        height: 100%;
 
-        & div:nth-last-child(2) {
-            margin-right: auto;
-        }
-
-        & div {
+        &__child {
+            display: inline-block;
             cursor: pointer;
-            margin: 1.3rem 1rem;
+            margin: 2rem 2rem;
+
+            &--logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+            }
         }
     }
 
@@ -80,6 +85,32 @@
                 top: 0rem;
                 transform: rotate(-135deg);
             }
+        }
+    }
+}
+
+// Flexbox for the kiwanis and isun logos
+.logos {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    height: 100%;
+    margin-left: 0.7rem;
+
+    &__box {
+        height: 2.8rem;
+        width: 15rem;
+
+        &--isun {
+            height: 3.2rem;
+            margin-top: 0.7rem;
+        }
+
+        & img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
         }
     }
 }

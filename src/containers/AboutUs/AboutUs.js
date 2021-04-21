@@ -2,13 +2,14 @@ import './AboutUs.scss'
 // Make a transparent image for Kiwanis about us page to replace here
 import TransparentImage from '../../assets/Images/ex.png'
 import StaticGallery from '../../components/StaticGallery/StaticGallery'
+import { staticGallery, staticMemberGallery } from '../../components/StaticGallery/StaticGalleryContent'
 
 const AboutUs = props => {
     return (
         <div className="about-us">
             <div className="about-us__flexbox">
                 <h2 className="about-us__flexbox__child">
-                    This is <span>Kiwanis</span>
+                    This is <span className="about-us__flexbox__child--span">Kiwanis</span>
                 </h2>
                 <div className="about-us__flexbox__child horizontal-flex">
                     <img src={TransparentImage} alt="about us" className="horizontal-flex__img" />
@@ -22,10 +23,16 @@ const AboutUs = props => {
 
             <div className="about-us__flexbox__child wavy-div"></div>
             <div className="about-us__flexbox__child about-us__flexbox__child--white">
-                Meet our <span>Executive Board</span>
+                <h3>Meet our <span className="about-us__flexbox__child--span">Executive Board</span></h3>
+                <StaticGallery sizeOfGalleryCard={29} content={staticGallery} gridColor={'white'} />
             </div>
 
-            <StaticGallery />
+
+            <div className="about-us__flexbox__child about-us__flexbox__child--lightblue">
+                <h3 style={{ paddingTop: '2rem' }}>Meet our <span className="about-us__flexbox__child--span">Members</span></h3>
+
+                <StaticGallery sizeOfGalleryCard={20} content={staticMemberGallery} gridColor={'lightblue'} createRows />
+            </div>
         </div>
     )
 }

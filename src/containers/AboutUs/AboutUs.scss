@@ -12,9 +12,7 @@
         justify-content: center;
 
         &__child {
-            margin-top: 3rem;
-
-            & span {
+            &--span {
                 font-weight: 700;
                 color: #b49759;
             }
@@ -24,6 +22,15 @@
             background-color: white;
             margin-top: 0;
             color: black;
+        }
+
+        &__child--lightblue {
+            background: linear-gradient(47deg, #f4f6ff 4%, #f5f9fe 95%), linear-gradient(to bottom, #f7f8fd, #f7f8fd);
+            color: black;
+
+            // We have a margin: 6rem 3rem at the top of this file. Since we want this child to
+            // cover that, we'll provide it -3rem on left and right side each.
+            margin: 0 -3rem;
         }
     }
 }

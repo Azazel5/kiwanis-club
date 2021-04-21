@@ -7,6 +7,10 @@ import Person6 from '../../assets/Images/person-6.JPG'
 import Person7 from '../../assets/Images/person-7.jpeg'
 import Person8 from '../../assets/Images/person-8.jpeg'
 
+import Person9 from '../../assets/Images/person-9.jpeg'
+import Person10 from '../../assets/Images/person-10.png'
+import Person11 from '../../assets/Images/person-11.png'
+
 export const staticGallery = {
     "1": {
         "path": Person1,
@@ -34,29 +38,49 @@ export const staticGallery = {
         "name": "Preeshan Upadhyay",
         "position": "Director of finances",
         "description": "Not sure what he does here to be honest?"
-    },
+    }
+}
 
-    "5": {
+export const staticMemberGallery = {
+    "1": {
         "path": Person4,
         "name": "Joe Rogan",
-        "position": "Useless Podcaster" 
+        "position": "Useless Podcaster"
     },
 
-    "6": {
+    "2": {
         "path": Person5,
         "name": "Salman Mercury",
         "position": "Singer/Rash driver"
     },
 
-    "7": {
+    "3": {
         "path": Person7,
         "name": "K.P Oli",
         "position": "Prime minister of the country of Nepal"
     },
 
-    "8": {
+    "4": {
         "path": Person8,
         "name": "Joseph R. Biden",
         "position": "POTUS"
+    },
+
+    "5": {
+        "path": Person9,
+        "name": "Guy 1",
+        "position": "dude"
+    },
+
+    "6": {
+        "path": Person10,
+        "name": "Guy 2",
+        "position": "dude"
+    },
+
+    "7": {
+        "path": Person11,
+        "name": "Guy 3",
+        "position": "dude"
     }
 }
