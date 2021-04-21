@@ -12,28 +12,28 @@ export const staticGallery = {
         "path": Person1,
         "name": "Subhanga Upadhyay",
         "position": "Chief Technical Officer",
-        "description": "lol"
-    },
-
-    "2": {
-        "path": Person2,
-        "name": "Preeshan Upadhyay",
-        "position": "Director of finances",
-        "description": "lol"
+        "description": "This guy develops our website, implements everything, all on his free time. For the love of god, someone give this fella an internship."
     },
 
     "3": {
         "path": Person3,
         "name": "Prativa Neupane",
         "position": "Madame President",
-        "description": "lol"
+        "description": "Madame la présidente. She's the boss around these parts and is the face of the club. She has a message for you: \"Please give donations; we're broke\""
     },
 
-    "4": {
+    "2": {
         "path": Person6,
         "name": "Sanjaya Upadhyay",
         "position": "Chief Chief Technical Officer",
-        "description": "lol"
+        "description": "Mr. Sancho Upadhyay. He manages our CTO, gives him suggestions on what features to build next, and reviews any changes made. git pull and npm start are his best friends."
+    },
+
+    "4": {
+        "path": Person2,
+        "name": "Preeshan Upadhyay",
+        "position": "Director of finances",
+        "description": "Not sure what he does here to be honest?"
     },
 
     "5": {
