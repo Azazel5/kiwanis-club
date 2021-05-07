@@ -8,6 +8,7 @@ import MenuOverlay from './components/MenuOverlay/MenuOverlay'
 import NewsGallery from './components/NewsSection/NewsGallery/NewsGallery'
 import NewsStory from './components/NewsSection/NewsStory/NewsStory'
 import ImageGallery from './containers/ImageGallery/ImageGallery'
+import Events from './containers/Events/Events'
 import AboutUs from './containers/AboutUs/AboutUs'
 import Footer from './components/Footer/footer'
 
@@ -77,6 +78,10 @@ const App = () => {
 
             <Route exact path="/about">
                 <AboutUs />
+            </Route>
+
+            <Route exact path="/events">
+                <Events />
             </Route>
 
             {/* We want the navigation bar, footer, and menu overlay to be present in all pages, so

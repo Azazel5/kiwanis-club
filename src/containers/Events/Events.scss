@@ -1,0 +1,41 @@
+.events {
+    margin: 6.5rem 3rem;
+    font-size: 3rem;
+
+    & > *:not(:last-child) {
+        margin-bottom: 4rem;
+    }
+
+    & h2 {
+        text-align: center;
+        font-weight: 700;
+    }
+
+    &__row {
+        display: flex;
+        height: 40vh;
+        border-bottom: 1px solid #e3e3e3;
+
+        &__child {
+            width: 50%;
+            cursor: pointer;
+
+            &--text {
+                display: flex;
+                flex-direction: column;
+                padding: 2rem;
+                font-size: 2rem;
+
+                & > *:not(:last-child) {
+                    margin-bottom: 0.7rem;
+                }
+            }
+
+            &--img {
+                height: 100%;
+                object-fit: contain;
+                border-right: 1px solid #e3e3e3;
+            }
+        }
+    }
+}
