@@ -1,5 +1,4 @@
 import './Events.scss'
-
 import Event1 from '../../assets/Images/event1.jpeg'
 import Event2 from '../../assets/Images/event2.jpeg'
 import Event3 from '../../assets/Images/event3.jpeg'
@@ -7,8 +6,6 @@ import Event3 from '../../assets/Images/event3.jpeg'
 const Events = props => {
     return (
         <div className="events">
-            <h2>Events</h2>
-
             <div className="events__row">
                 <img src={Event1} alt="event" className="events__row__child events__row__child--img" />
                 <div className="events__row__child events__row__child--text">
@@ -35,6 +32,8 @@ const Events = props => {
                     <span className="event-place">Salt Lake City, Utah, USA</span>
                 </div>
             </div>
+
+            <button className="events__button">Load More Events</button>
         </div>
     )
 }

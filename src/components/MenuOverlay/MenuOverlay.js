@@ -27,7 +27,7 @@ const MenuOverlay = props => {
                 <div className="menu-overlay__container">
                     <div className="menu-overlay__container__item" onClick={() => menuItemClickhandler("/")}>Home</div>
                     <div className="menu-overlay__container__item" onClick={() => menuItemClickhandler("/events")}>Events</div>
-                    <div className="menu-overlay__container__item">Projects</div>
+                    <div className="menu-overlay__container__item" onClick={() => menuItemClickhandler("/projects")}>Projects</div>
                     <div className="menu-overlay__container__item" onClick={() => menuItemClickhandler("/about")}>About Us</div>
                 </div>
             </div>

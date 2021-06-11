@@ -1,14 +1,12 @@
 .events {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 6.5rem 3rem;
     font-size: 3rem;
 
     & > *:not(:last-child) {
         margin-bottom: 4rem;
-    }
-
-    & h2 {
-        text-align: center;
-        font-weight: 700;
     }
 
     &__row {
@@ -36,6 +34,26 @@
                 object-fit: contain;
                 border-right: 1px solid #e3e3e3;
             }
+        }
+    }
+
+    &__button {
+        font-size: 1.5rem;
+        height: 4.5rem;
+        width: 12%;
+        background-color: transparent;
+        cursor: pointer;
+        outline: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid black;
+        transition: all .5s;
+
+        &:hover {
+            background-color: black;
+            color: white;
+            transform: translateY(-4px);
         }
     }
 }

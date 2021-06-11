@@ -1,0 +1,16 @@
+.image-gallery {
+    padding: 2.5rem;
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    &__thumbnail {
+        width: 10px;
+        height: 10px;
+
+        & img {
+            object-fit: cover;
+        }
+    }
+}
