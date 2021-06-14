@@ -5,9 +5,10 @@
     margin: 6.5rem 3rem;
     font-size: 3rem;
 
-    & > *:not(:last-child) {
-        margin-bottom: 4rem;
-    }
+    // Change this to a more specific selector because the modal gets a margin too if not
+    // & > *:not(:last-child) {
+    //     margin-bottom: 4rem;
+    // }
 
     &__row {
         display: flex;
@@ -48,7 +49,7 @@
         border-left: none;
         border-right: none;
         border-bottom: 1px solid black;
-        transition: all .5s;
+        transition: all 0.5s;
 
         &:hover {
             background-color: black;

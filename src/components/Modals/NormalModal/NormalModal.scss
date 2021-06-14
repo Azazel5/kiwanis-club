@@ -1,10 +1,10 @@
-.image-modal {
+.normal-modal {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 999;
+    z-index: 1100;
     background-color: rgba($color: black, $alpha: 0.6);
 
     &__box {
@@ -14,25 +14,12 @@
 
         // Specify a constraint for the width of the centered div so the image inside it can
         // adjust accordingly
-        max-width: 50%;
-        min-width: 30rem;
+        max-width: 70%;
+        min-width: 50%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: white;
-
-        &--img {
-            // Set a limit on the height for each image and make it fit its parent div
-            width: 100%;
-            height: 35rem;
-            object-fit: cover;
-        }
-
-        &--p {
-            font-size: 1.8rem;
-            padding: 3rem;
-            text-align: center;
-        }
     }
 }
 
@@ -55,12 +42,13 @@
 
 .cross-button {
     position: absolute;
-    top: 0.5rem;
+    top: 0.9rem;
     right: 1.4rem;
     width: 3.5rem;
     height: 3.5rem;
     line-height: 3.5rem;
     vertical-align: middle;
+    z-index: 3000;
 
     text-align: center;
     cursor: pointer;
