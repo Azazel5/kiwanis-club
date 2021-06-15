@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 const Map = props => {
-    const { latitude, longitude, zoom } = props
+    const { latitude, longitude, zoom, pinText } = props
 
     return (
         <MapContainer center={[latitude, longitude]} zoom={zoom} scrollWheelZoom={true} style={{height: '60rem'}}>
@@ -11,9 +11,7 @@ const Map = props => {
             />
 
             <Marker position={[latitude, longitude]}>
-                <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
-                </Popup>
+                <Popup>{pinText}</Popup>
             </Marker>
         </MapContainer>
     )

@@ -2,11 +2,14 @@ import NormalModal from '../NormalModal/NormalModal'
 import Map from '../../Map/Map'
 
 const MapModal = props => {
-    const { closeModalHandler, modalBoxRef } = props
+    const { closeModalHandler, modalBoxRef, selectedEvent } = props
 
     return (
         <NormalModal closeModalHandler={closeModalHandler} modalBoxRef={modalBoxRef}>
-            <Map latitude={30.2672} longitude={-97.7431} zoom={13} />
+            <Map
+                latitude={selectedEvent.latitude} longitude={selectedEvent.longitude} zoom={13}
+                pinText={selectedEvent.place}
+            />
         </NormalModal>
     )
 }
