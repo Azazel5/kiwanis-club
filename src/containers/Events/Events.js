@@ -42,7 +42,7 @@ const Events = props => {
         </div>
     ))
 
-    // Fix the state initializer
+    // States 
     const [modalOpen, setModalOpen] = useState({ 'status': null, 'selectedEvent': null })
     const modalBoxRef = useRef()
 
@@ -56,8 +56,12 @@ const Events = props => {
     }
 
     return (
-        <div className="events" ref={modalBoxRef}>
-            {modalOpen.status && <MapModal closeModalHandler={closeModalHandler} modalBoxRef={modalBoxRef} selectedEvent={modalOpen.selectedEvent} />}
+        <div className="events">
+
+            {modalOpen.status &&
+                <MapModal closeModalHandler={closeModalHandler} modalBoxRef={modalBoxRef}
+                    selectedEvent={modalOpen.selectedEvent} />}
+
             {events}
             <button className="events__button">Load More Events</button>
         </div>

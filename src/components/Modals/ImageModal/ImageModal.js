@@ -2,12 +2,13 @@ import './ImageModal.scss'
 import NormalModal from '../NormalModal/NormalModal'
 
 const ImageModal = props => {
-    const { closeModalHandler, modalBoxRef, selectedImage, imageDescription } = props
+    const { closeModalHandler, modalBoxRef, selectedProject } = props
 
     return (
         <NormalModal closeModalHandler={closeModalHandler} modalBoxRef={modalBoxRef}>
-            <img src={selectedImage} alt="description" className="image-modal--img" />
-            <p className="image-modal--p">{imageDescription}</p>
+            <img src={selectedProject.projectImage} alt="description" className="image-modal--img" />
+            <span className="image-modal--date centered">{selectedProject.projectDate}</span>
+            <p className="image-modal--p centered">{selectedProject.description}</p>
         </NormalModal>
     )
 }

@@ -8,7 +8,15 @@
 
     &--p {
         font-size: 1.8rem;
-        padding: 3rem;
-        text-align: center;
+        padding: 1rem;
     }
+
+    &--date {
+        font-size: 1.2rem;
+    }
+}
+
+.centered {
+    text-align: center;
+    padding: 1rem;
 }
