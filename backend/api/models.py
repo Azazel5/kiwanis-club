@@ -1,0 +1,48 @@
+from django.db import models
+
+# Abstract Classes
+
+
+class EmployeeBase(models.Model):
+    employee_image = models.ImageField(upload_to='about_us')
+    employee_name = models.CharField(max_length=255)
+    employee_position = models.CharField(max_length=255)
+
+    class Meta:
+        abstract = True
+
+# Concrete Classes
+
+
+class Event(models.Model):
+    event_location_latitude = models.FloatField()
+    event_location_longitude = models.FloatField()
+    event_name = models.CharField(max_length=255)
+    event_date = models.DateField()
+    event_place = models.CharField(max_length=255)
+    event_image = models.ImageField(upload_to='events')
+
+
+class Project(models.Model):
+    project_title = models.CharField(max_length=100)
+    project_date = models.DateField()
+    project_image = models.ImageField(upload_to='projects')
+    project_description = models.TextField()
+
+
+class News(models.Model):
+    news_image = models.ImageField(upload_to='news')
+    news_genre = models.CharField(max_length=100)
+    news_title = models.CharField(max_length=255)
+    news_description = models.TextField()
+
+    class Meta:
+        verbose_name_plural = "News"
+
+
+class ExecutiveEmployee(EmployeeBase):
+    executive_description = models.CharField(max_length=255)
+
+
+class NonExecutiveEmployee(EmployeeBase):
+    pass
