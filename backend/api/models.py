@@ -22,12 +22,18 @@ class Event(models.Model):
     event_place = models.CharField(max_length=255)
     event_image = models.ImageField(upload_to='events')
 
+    def __str__(self):
+        return self.event_name
+
 
 class Project(models.Model):
     project_title = models.CharField(max_length=100)
     project_date = models.DateField()
     project_image = models.ImageField(upload_to='projects')
     project_description = models.TextField()
+
+    def __str__(self):
+        return self.project_title
 
 
 class News(models.Model):
@@ -36,6 +42,9 @@ class News(models.Model):
     news_title = models.CharField(max_length=255)
     news_description = models.TextField()
 
+    def __str__(self):
+        return self.news_title
+
     class Meta:
         verbose_name_plural = "News"
 
@@ -43,6 +52,11 @@ class News(models.Model):
 class ExecutiveEmployee(EmployeeBase):
     executive_description = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.employee_name
+
 
 class NonExecutiveEmployee(EmployeeBase):
-    pass
+    def __str__(self):
+        return self.employee_name
+    
