@@ -9,8 +9,6 @@ from .serializers import (
 )
 
 from rest_framework import viewsets
-from rest_framework.permissions import IsAdminUser
-
 
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()

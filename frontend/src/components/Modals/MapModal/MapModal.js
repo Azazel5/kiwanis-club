@@ -7,8 +7,9 @@ const MapModal = props => {
     return (
         <NormalModal closeModalHandler={closeModalHandler} modalBoxRef={modalBoxRef}>
             <Map
-                latitude={selectedEvent.latitude} longitude={selectedEvent.longitude} zoom={13}
-                pinText={selectedEvent.place}
+                latitude={selectedEvent.event_location_latitude}
+                longitude={selectedEvent.event_location_longitude} zoom={13}
+                pinText={selectedEvent.event_place}
             />
         </NormalModal>
     )

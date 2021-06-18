@@ -1,5 +1,6 @@
 import React from 'react'
-import { useState, useRef } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import axios from 'axios'
 
 import './Projects.scss'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
@@ -10,8 +11,16 @@ import ImageModal from '../../components/Modals/ImageModal/ImageModal'
 
 const Projects = props => {
     /** Hooks */
+    const [eventJson, setEventJson] = useState(null)
     const [modalOpen, setModalOpen] = useState({ 'status': false, 'selectedProject': null })
     const modalBoxRef = useRef()
+
+    /** Effects */
+    // useEffect(() => {
+    //     axios.get('http://localhost:8000/events/')
+    //         .then(response => setEventJson(response.data))
+    //         .catch(error => console.log("[-] Events could not be loaded"))
+    // }, [])
 
     /** Event handlers **/
     const openModalHandler = (project) => {
@@ -58,7 +67,7 @@ const Projects = props => {
             <ProjectCard project={project} openModalHandler={openModalHandler} />
         </React.Fragment>
     ))
-    
+
     // If the modal's status is open, render the ImageModal component; else, just 
     // render the mapped projects 
     return (
