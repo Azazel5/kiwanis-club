@@ -59,4 +59,12 @@ class ExecutiveEmployee(EmployeeBase):
 class NonExecutiveEmployee(EmployeeBase):
     def __str__(self):
         return self.employee_name
+
+
+class HomeGallery(models.Model):
+    description = models.CharField(max_length=255)
+    original = models.ImageField(upload_to='gallery')
+
+    class Meta:
+        verbose_name_plural = "HomeGallery"
     

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Route } from 'react-router-dom'
+import axios from 'axios'
 
 import './App.scss'
 import Navigation from './components/navigation/navigation'
@@ -17,6 +18,7 @@ const App = () => {
     /** State variables **/
     const [navbarScrolled, setNavbarScrolled] = useState(false)
     const [menuClicked, setMenuClicked] = useState(false)
+    const [gallery, setGallery] = useState(null)
 
     /** Event Handlers **/
 
@@ -44,6 +46,23 @@ const App = () => {
         }
     }, [navbarScrollStateHandler])
 
+    useEffect(() => {
+        axios.get('http://localhost:8000/gallery/')
+            .then(response => {
+                const updatedResponse = response.data.map(item => {
+                    item['thumbnailClass'] = "image-gallery__thumbnail"
+                    item['originalHeight'] = 400
+                    item['thumbnailHeight'] = 100
+                    item['thumbnail'] = item['original']
+                    return item
+                })
+
+                setGallery(updatedResponse)
+            })
+
+            .catch(error => console.log("[-] Error in gallery loading!"))
+    }, [])
+
     return (
         <>
             <Route exact path="/">
@@ -61,13 +80,13 @@ const App = () => {
                             Maecenas vel posuere magna. Phasellus sagittis lectus quam, vitae scelerisque diam vestibulum at. Nullam risus magna, cursus ut lorem vitae, finibus laoreet eros. Integer vulputate tincidunt magna sed rutrum. Pellentesque suscipit posuere molestie. In consectetur eu risus sit amet mollis. Fusce non risus vel lectus vehicula suscipit vel sed magna.
 
                             Vestibulum hendrerit ut sem molestie aliquet. In eget aliquam ligula. Sed diam urna, auctor finibus nunc aliquam, tempor mollis libero. Pellentesque varius tincidunt ullamcorper. Vivamus suscipit tortor sed facilisis mattis. In aliquam odio a sapien porttitor posuere. Nam porttitor faucibus felis eget cursus.
-                        
+
                         </p>
                     </div>
 
                     <NewsGallery />
 
-                    <HomeImageGallery />
+                    <HomeImageGallery gallery={gallery} />
                 </div>
 
             </Route>
@@ -96,7 +115,7 @@ const App = () => {
 
             <Footer />
 
-            <MenuOverlay menuClicked={menuClicked} menuButtonClickHandler={menuButtonClickHandler}/>
+            <MenuOverlay menuClicked={menuClicked} menuButtonClickHandler={menuButtonClickHandler} />
         </>
     );
 }

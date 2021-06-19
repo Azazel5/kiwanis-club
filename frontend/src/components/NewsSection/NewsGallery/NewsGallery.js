@@ -1,29 +1,44 @@
+import { useEffect, useState } from 'react'
 import './NewsGallery.scss'
-import { newsContent } from '../NewsContent'
 
 import { useHistory } from "react-router-dom";
+import axios from 'axios';
 
 const NewsGallery = props => {
+    /** States and hooks */
+    const [newsJson, setNewsJson] = useState(null)
     const history = useHistory();
 
-    const newsItems = Object.keys(newsContent).map(key => {
-        return (
-            <div className={`item news-section__item--${key}`}
-                key={key} onClick={() => history.push(`/news/${key}`)}>
-                <div className="text">
-                    <span>{newsContent[key]["genre"]}</span>
-                    <h2>{newsContent[key]["title"]}</h2>
+    /** Effects */
+    useEffect(() => {
+        axios.get('http://localhost:8000/news/')
+            .then(response => {
+                setNewsJson(response.data)
+            })
+            .catch(error => console.log(error))
+    }, [])
+
+    let newsItems = null
+    if (newsJson) {
+        newsItems = newsJson.map(news => {
+            return (
+                <div className={`item news-section__item--${news.id}`}
+                    key={news.id} onClick={() => history.push(`/news/${news.id}`)}>
+                    <div className="text">
+                        <span>{news.news_genre}</span>
+                        <h2>{news.news_title}</h2>
+                    </div>
+                    <img src={news.news_image} alt="news" className="news-section__img" />
                 </div>
-                <img src={newsContent[key]["path"]} alt="news" className="news-section__img" />
-            </div>
-        )
-    })
+            )
+        })
+    }
 
     return (
         <section className="news">
             <h2>News</h2>
 
-            <div className="news-section">{newsItems}</div>
+            <div className="news-section">{newsItems && newsItems}</div>
         </section>
     )
 }

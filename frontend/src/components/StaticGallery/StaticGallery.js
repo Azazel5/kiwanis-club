@@ -36,29 +36,32 @@ const StaticGallery = props => {
     }
 
     /** Mapped variables **/
-    const mappedItems = Object.keys(content).map(key => {
-        return (
-            <div className="static-gallery__item" key={key} style={centeredGalleryItems}>
-                <img src={content[key]["path"]} alt="member" className="static-gallery__item--img" style={imageStyles} />
-                <span className="static-gallery__item--name">{content[key]["name"]}</span>
-                <span className="static-gallery__item--position">{content[key]["position"]}</span>
+    let mappedItems = null
+    if (content) {
+        mappedItems = content.map(employee => {
+            return (
+                <div className="static-gallery__item" key={employee.id} style={centeredGalleryItems}>
+                    <img src={employee.employee_image} alt="member" className="static-gallery__item--img" style={imageStyles} />
+                    <span className="static-gallery__item--name">{employee.employee_name}</span>
+                    <span className="static-gallery__item--position">{employee.employee_position}</span>
 
-                {content[key]["description"] && <hr></hr>}
+                    {employee.executive_description && <hr></hr>}
 
-                {content[key]["description"] &&
-                    <p className="static-gallery__item--description">
-                        {content[key]["description"]}
-                    </p>}
+                    {employee.executive_description &&
+                        <p className="static-gallery__item--description">
+                            {employee.executive_description}
+                        </p>}
 
-            </div>
-        )
-    })
+                </div>
+            )
+        })
+    }
 
     // gridColor is a string prop passed from AboutUs so the grid can apply the classes defined in 
     // AboutUs.scss
     return (
         <div className={`static-gallery about-us__flexbox__child--${gridColor}`} style={gridStyles}>
-            {mappedItems}
+            {mappedItems && mappedItems}
         </div>
     )
 }

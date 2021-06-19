@@ -1,10 +1,22 @@
+import { useEffect, useState } from 'react'
 import './AboutUs.scss'
+import axios from 'axios'
+
 // Make a transparent image for Kiwanis about us page to replace here
 import TransparentImage from '../../assets/Images/ex.png'
 import StaticGallery from '../../components/StaticGallery/StaticGallery'
-import { staticGallery, staticMemberGallery } from '../../components/StaticGallery/StaticGalleryContent'
 
 const AboutUs = props => {
+    /** States and hooks */
+    const [employees, setEmployees] = useState(null)
+
+    /** Effects */
+    useEffect(() => {
+        axios.get('http://localhost:8000/about_us/')
+            .then(response => setEmployees(response.data))
+            .catch(error => console.log("[-] Error in loading employee gallery"))
+    }, [])
+
     return (
         <div className="about-us">
             <div className="about-us__flexbox">
@@ -16,22 +28,32 @@ const AboutUs = props => {
                     <p className="horizontal-flex__p">
                         Kiwanis International is a global community of clubs, members and partners dedicated to improving the lives of children one community at a time. <br /> <br />Today, we stand with more than 550,000 members from K-Kids to Key Club to Kiwanis and many ages in between in 80 countries and geographic areas. Each community has different needs, and Kiwanis empowers members to pursue creative ways to serve the needs of children, such as fighting hunger, improving literacy and offering guidance.
 
-                            <br /> <br />Kiwanis clubs host nearly 150,000 service projects each year.
-                        </p>
+                        <br /> <br />Kiwanis clubs host nearly 150,000 service projects each year.
+                    </p>
                 </div>
             </div>
 
             <div className="about-us__flexbox__child wavy-div"></div>
             <div className="about-us__flexbox__child about-us__flexbox__child--white">
                 <h3>Meet our <span className="about-us__flexbox__child--span">Executive Board</span></h3>
-                <StaticGallery sizeOfGalleryCard={29} content={staticGallery} gridColor={'white'} />
+                <StaticGallery
+                    sizeOfGalleryCard={29}
+                    content={employees && employees['executive']}
+                    gridColor={'white'}
+                />
             </div>
 
 
             <div className="about-us__flexbox__child about-us__flexbox__child--lightblue">
                 <h3 style={{ paddingTop: '2rem' }}>Meet our <span className="about-us__flexbox__child--span">Members</span></h3>
 
-                <StaticGallery sizeOfGalleryCard={20} content={staticMemberGallery} gridColor={'lightblue'} createRows />
+                <StaticGallery
+                    sizeOfGalleryCard={20}
+                    content={employees && employees['non_executive']}
+                    gridColor={'lightblue'}
+                    createRows
+                />
+
             </div>
         </div>
     )

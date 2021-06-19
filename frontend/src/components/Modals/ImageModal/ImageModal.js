@@ -6,9 +6,9 @@ const ImageModal = props => {
 
     return (
         <NormalModal closeModalHandler={closeModalHandler} modalBoxRef={modalBoxRef}>
-            <img src={selectedProject.projectImage} alt="description" className="image-modal--img" />
-            <span className="image-modal--date centered">{selectedProject.projectDate}</span>
-            <p className="image-modal--p centered">{selectedProject.description}</p>
+            <img src={selectedProject.project_image} alt="description" className="image-modal--img" />
+            <span className="image-modal--date centered">{selectedProject.project_date}</span>
+            <p className="image-modal--p centered">{selectedProject.project_description}</p>
         </NormalModal>
     )
 }
