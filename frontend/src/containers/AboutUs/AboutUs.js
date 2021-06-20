@@ -48,7 +48,7 @@ const AboutUs = props => {
                 <h3 style={{ paddingTop: '2rem' }}>Meet our <span className="about-us__flexbox__child--span">Members</span></h3>
 
                 <StaticGallery
-                    sizeOfGalleryCard={20}
+                    sizeOfGalleryCard={22}
                     content={employees && employees['non_executive']}
                     gridColor={'lightblue'}
                     createRows

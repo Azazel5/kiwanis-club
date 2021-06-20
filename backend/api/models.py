@@ -67,4 +67,3 @@ class HomeGallery(models.Model):
 
     class Meta:
         verbose_name_plural = "HomeGallery"
-    

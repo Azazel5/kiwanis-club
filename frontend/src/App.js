@@ -75,12 +75,21 @@ const App = () => {
                     <div className="app__purpose-container">
                         <h2>Our Purpose</h2>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt sem quis neque sagittis congue a quis neque. Mauris turpis magna, accumsan ut tellus ac, gravida viverra augue. Aliquam erat volutpat. Nam in placerat dui. Maecenas tincidunt lobortis facilisis. Etiam pharetra lorem at nulla sagittis, ut gravida lacus convallis. Donec eros odio, mollis vitae dapibus et, pulvinar ut odio. Sed porta orci ut ullamcorper ultricies. Vivamus suscipit turpis at nisi semper, sit amet vestibulum est commodo. Maecenas consequat lobortis enim, a euismod quam sodales et. Vestibulum tempor vulputate sem, nec ullamcorper nibh suscipit aliquet.
-
-                            Maecenas vel posuere magna. Phasellus sagittis lectus quam, vitae scelerisque diam vestibulum at. Nullam risus magna, cursus ut lorem vitae, finibus laoreet eros. Integer vulputate tincidunt magna sed rutrum. Pellentesque suscipit posuere molestie. In consectetur eu risus sit amet mollis. Fusce non risus vel lectus vehicula suscipit vel sed magna.
-
-                            Vestibulum hendrerit ut sem molestie aliquet. In eget aliquam ligula. Sed diam urna, auctor finibus nunc aliquam, tempor mollis libero. Pellentesque varius tincidunt ullamcorper. Vivamus suscipit tortor sed facilisis mattis. In aliquam odio a sapien porttitor posuere. Nam porttitor faucibus felis eget cursus.
-
+                            ESUN stands for Ex-Students Unity of Nepal Law College. With an aim of contributing whatever we
+                            have in our hands, a few likeminded friends of the same batch of Nepal Law College,
+                            Kathmandu (batch of 1993), gathered together to form a group under the name of Kiwanis Club of
+                            Kathmandu ESUN. This club was formed to serve children in need, and it is unique in doing so because
+                            of the members' experience in law i.e. it's a social club of lawyers dedicated to helping childen.
+                            <br /> <br />
+                            In Nepal, it has been repeatedly observed that the most neglected portion of the population is the children. Working
+                            parents face the pressures of earning a livelihood for their families, and they have no option other than putting their
+                            growing children in the same workplace; these children are then forced to assist their parents just to add a number of working hands.
+                            The government of Nepal has implemented free primary education up to fifth
+                            standard, and this has shown positive indications of increasing the number of school going children; however, there's still many children being deprived of a proper school education,
+                            due to the lack of basic educational materials, such as pens, pencils, school bags, or other stationery items.
+                            <br /> <br />
+                            The club hopes to support these children and their families by initiatives such as organizing the distribution of food,
+                            educational materials, or providing tuition fee to the needy children.
                         </p>
                     </div>
 
