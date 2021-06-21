@@ -1,8 +1,11 @@
+@import "../../variables.scss";
+
 .footer {
     font-size: 1.8rem;
 
     &__top {
         display: flex;
+        flex-direction: row;
         align-items: baseline;
         justify-content: space-evenly;
         height: 40rem;
@@ -25,12 +28,36 @@
                 text-decoration: none;
                 border: none;
                 color: white;
-                transition: color .2s;
+                transition: color 0.2s;
 
                 &:hover {
                     color: #b49759;
                 }
             }
+
+            @media screen and (max-width: $breakpointBigPhone) {
+                width: 50%;
+            }
+
+            @media screen and (max-width: $breakpointSmallPhone) {
+                width: 75%;
+            }
+
+            @media screen and (max-width: $breakpointSuperSmall) {
+                width: 95%;
+            }
+        }
+
+        &-child:last-child {
+            @media screen and (max-width: $breakpointBigPhone) {
+                margin-bottom: 3rem;
+            }
+        }
+
+        @media screen and (max-width: $breakpointBigPhone) {
+            flex-direction: column;
+            height: auto;
+            align-items: center;
         }
     }
 
@@ -42,6 +69,10 @@
         height: 6rem;
         background-color: #202020;
         color: #838383;
+
+        @media screen and (max-width: $breakpointSmallPhone) {
+            padding: 2rem;
+        }
     }
 }
 
@@ -64,19 +95,34 @@
             fill: #b49759;
         }
     }
+
+    @media screen and (max-width: $breakpointSmallLaptop) {
+        width: 80%;
+    }
 }
 
 .contact-phone-container {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     margin-top: 2.5rem;
 
     & p {
         width: 80%;
+        font-size: 1.6rem;
+
+        @media screen and (max-width: $breakpointSmallLaptop) {
+            width: 100%;
+            text-align: center;
+        }
     }
 }
 
 .solid {
     border-top: 0.5px solid #bbb;
     width: 100%;
+
+    @media screen and (max-width: $breakpointSmallPhone) {
+        width: 50%;
+    }
 }

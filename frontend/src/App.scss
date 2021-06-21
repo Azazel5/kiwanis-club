@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 .app {
     &__image-container {
         // Setting the height of header image to be the size of vertical window - height of navigation bar
@@ -22,6 +24,18 @@
 
         & p {
             line-height: 3rem;
+        }
+
+        @media screen and (max-width: $breakpointTablet) {
+            width: 75%;
+        }
+
+        @media screen and (max-width: $breakpointSmallPhone) {
+            width: 87%;
+        }
+
+        @media screen and (max-width: $breakpointSuperSmall) {
+            width: 100%;
         }
     }
 }

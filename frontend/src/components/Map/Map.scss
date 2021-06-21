@@ -1,0 +1,14 @@
+@import '../../variables.scss';
+
+.map-container {
+    height: 60rem;
+
+    @media screen and (max-width: $breakpointBigPhone) {
+        height: 65rem;
+    }
+
+
+    @media screen and (max-width: $breakpointSmallPhone) {
+        height: 75rem;
+    }
+}
