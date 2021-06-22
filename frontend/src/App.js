@@ -13,11 +13,13 @@ import Events from './containers/Events/Events'
 import Projects from './containers/Projects/Projects'
 import AboutUs from './containers/AboutUs/AboutUs'
 import Footer from './components/Footer/footer'
+import Error from './components/Error/Error'
 
 const App = () => {
     /** State variables **/
     const [navbarScrolled, setNavbarScrolled] = useState(false)
     const [menuClicked, setMenuClicked] = useState(false)
+    const [error, setError] = useState(null)
     const [gallery, setGallery] = useState(null)
 
     /** Event Handlers **/
@@ -60,7 +62,7 @@ const App = () => {
                 setGallery(updatedResponse)
             })
 
-            .catch(error => console.log("[-] Error in gallery loading!"))
+            .catch(error => setError(error.message))
     }, [])
 
     return (
@@ -95,7 +97,7 @@ const App = () => {
 
                     <NewsGallery />
 
-                    <HomeImageGallery gallery={gallery} />
+                    {error ? <Error error={error} />: <HomeImageGallery gallery={gallery} />}
                 </div>
 
             </Route>

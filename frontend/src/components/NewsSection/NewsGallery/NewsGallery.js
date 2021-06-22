@@ -3,10 +3,12 @@ import './NewsGallery.scss'
 
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
+import Error from '../../Error/Error';
 
 const NewsGallery = props => {
     /** States and hooks */
     const [newsJson, setNewsJson] = useState(null)
+    const [error, setError] = useState(null)
     const history = useHistory();
 
     /** Effects */
@@ -15,7 +17,7 @@ const NewsGallery = props => {
             .then(response => {
                 setNewsJson(response.data)
             })
-            .catch(error => console.log(error))
+            .catch(error => setError(error.message))
     }, [])
 
     let newsItems = null
@@ -35,7 +37,7 @@ const NewsGallery = props => {
     }
 
     return (
-        <section className="news">
+        error ? <Error error={error} />: <section className="news">
             <h2>News</h2>
 
             <div className="news-section">{newsItems && newsItems}</div>

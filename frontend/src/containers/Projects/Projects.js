@@ -5,18 +5,20 @@ import axios from 'axios'
 import './Projects.scss'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
 import ImageModal from '../../components/Modals/ImageModal/ImageModal'
+import Error from '../../components/Error/Error'
 
 const Projects = props => {
     /** Hooks */
     const [projectJson, setProjectJson] = useState(null)
     const [modalOpen, setModalOpen] = useState({ 'status': false, 'selectedProject': null })
+    const [error, setError] = useState(null)
     const modalBoxRef = useRef()
 
     /** Effects */
     useEffect(() => {
         axios.get('http://localhost:8000/projects/')
             .then(response => setProjectJson(response.data))
-            .catch(error => console.log("[-] Events could not be loaded"))
+            .catch(error => setError(error.message))
     }, [])
 
     /** Event handlers **/
@@ -51,7 +53,7 @@ const Projects = props => {
                 <ImageModal closeModalHandler={closeModalHandler} modalBoxRef={modalBoxRef}
                     selectedProject={modalOpen.selectedProject} />}
 
-            {projects && projects}
+            {error ? <Error error={error} />: projects && projects}
         </div>
     )
 }

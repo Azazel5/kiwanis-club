@@ -3,18 +3,20 @@ import axios from 'axios';
 
 import './Events.scss'
 import MapModal from '../../components/Modals/MapModal/MapModal'
+import Error from '../../components/Error/Error';
 
 const Events = props => {
     /** States */
     const [modalOpen, setModalOpen] = useState({ 'status': null, 'selectedEvent': null })
     const [eventJson, setEventJson] = useState(null)
+    const [error, setError] = useState(null)
     const modalBoxRef = useRef()
 
     /** Effects */
     useEffect(() => {
         axios.get('http://localhost:8000/events/')
             .then(response => setEventJson(response.data))
-            .catch(error => console.log("[-] Events could not be loaded"))
+            .catch(error => setError(error.message))
     }, [])
 
     let events = null
@@ -47,8 +49,8 @@ const Events = props => {
                 <MapModal closeModalHandler={closeModalHandler} modalBoxRef={modalBoxRef}
                     selectedEvent={modalOpen.selectedEvent} />}
 
-            {events && events}
-            <button className="events__button">Load More Events</button>
+            {error ? <Error error={error}/>: events && events}
+            {!error && <button className="events__button">Load More Events</button>}
         </div>
     )
 }
