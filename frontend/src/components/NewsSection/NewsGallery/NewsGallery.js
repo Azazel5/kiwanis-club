@@ -3,7 +3,7 @@ import './NewsGallery.scss'
 
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
-import Error from '../../Error/Error';
+import SimpleError from '../../Error/SimpleError/SimpleError';
 
 const NewsGallery = props => {
     /** States and hooks */
@@ -37,8 +37,8 @@ const NewsGallery = props => {
     }
 
     return (
-        error ? <Error error={error} />: <section className="news">
-            <h2>News</h2>
+        error ? <SimpleError error={error} />: <section className="news">
+            <h2>Recent Activity</h2>
 
             <div className="news-section">{newsItems && newsItems}</div>
         </section>

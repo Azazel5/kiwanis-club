@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import './Events.scss'
 import MapModal from '../../components/Modals/MapModal/MapModal'
-import Error from '../../components/Error/Error';
+import SimpleError from '../../components/Error/SimpleError/SimpleError';
 
 const Events = props => {
     /** States */
@@ -49,7 +49,7 @@ const Events = props => {
                 <MapModal closeModalHandler={closeModalHandler} modalBoxRef={modalBoxRef}
                     selectedEvent={modalOpen.selectedEvent} />}
 
-            {error ? <Error error={error}/>: events && events}
+            {error ? <SimpleError error={error}/>: events && events}
             {!error && <button className="events__button">Load More Events</button>}
         </div>
     )

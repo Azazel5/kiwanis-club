@@ -1,6 +1,6 @@
-import './Error.scss'
+import './SimpleError.scss'
 
-const Error = props => {
+const SimpleError = props => {
     const { error } = props
     return (
         <div className="error">
@@ -10,4 +10,4 @@ const Error = props => {
     )
 }
 
-export default Error
+export default SimpleError

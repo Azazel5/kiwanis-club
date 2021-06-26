@@ -5,7 +5,7 @@ import axios from 'axios'
 // Make a transparent image for Kiwanis about us page to replace here
 import TransparentImage from '../../assets/Images/ex.png'
 import StaticGallery from '../../components/StaticGallery/StaticGallery'
-import Error from '../../components/Error/Error'
+import SimpleError from '../../components/Error/SimpleError/SimpleError'
 
 const AboutUs = props => {
     /** States and hooks */
@@ -38,7 +38,7 @@ const AboutUs = props => {
             <div className="about-us__flexbox__child wavy-div"></div>
             <div className="about-us__flexbox__child about-us__flexbox__child--white">
                 <h3>Meet our <span className="about-us__flexbox__child--span">Executive Board</span></h3>
-                {error ? <Error error={error}/> : <StaticGallery
+                {error ? <SimpleError error={error}/> : <StaticGallery
                     sizeOfGalleryCard={29}
                     content={employees && employees['executive']}
                     gridColor={'white'}
@@ -49,7 +49,7 @@ const AboutUs = props => {
             <div className="about-us__flexbox__child about-us__flexbox__child--lightblue">
                 <h3 style={{ paddingTop: '2rem' }}>Meet our <span className="about-us__flexbox__child--span">Members</span></h3>
 
-                {error ? <Error error={error}/>  : <StaticGallery
+                {error ? <SimpleError error={error}/>  : <StaticGallery
                     sizeOfGalleryCard={22}
                     content={employees && employees['non_executive']}
                     gridColor={'lightblue'}

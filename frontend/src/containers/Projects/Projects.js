@@ -5,7 +5,7 @@ import axios from 'axios'
 import './Projects.scss'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
 import ImageModal from '../../components/Modals/ImageModal/ImageModal'
-import Error from '../../components/Error/Error'
+import SimpleError from '../../components/Error/SimpleError/SimpleError'
 
 const Projects = props => {
     /** Hooks */
@@ -53,7 +53,7 @@ const Projects = props => {
                 <ImageModal closeModalHandler={closeModalHandler} modalBoxRef={modalBoxRef}
                     selectedProject={modalOpen.selectedProject} />}
 
-            {error ? <Error error={error} />: projects && projects}
+            {error ? <SimpleError error={error} />: projects && projects}
         </div>
     )
 }

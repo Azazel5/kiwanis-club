@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 import './NewsStory.scss'
-import Error from '../../Error/Error';
+import SimpleError from '../../Error/SimpleError/SimpleError';
 
 const NewsStory = props => {
     /** States and hooks */
@@ -33,7 +33,7 @@ const NewsStory = props => {
         )
 
     else if (error)
-        componentToRender = <Error error={error} />
+        componentToRender = <SimpleError error={error} />
 
     return (
         <div className="news-story">{componentToRender}</div>

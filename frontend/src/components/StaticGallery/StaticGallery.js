@@ -16,7 +16,7 @@ const StaticGallery = props => {
         gridStyles = {
             'gridAutoRows': '20rem',
             'gridTemplateColumns': `repeat(auto-fit, minmax(${sizeOfGalleryCard}rem, 1fr))`,
-            'gridRowGap': '3rem',
+            'gridRowGap': '6rem',
             'gridColumnGap': '12rem',
         }
 
@@ -38,6 +38,8 @@ const StaticGallery = props => {
     /** Mapped variables **/
     let mappedItems = null
     if (content) {
+
+        // Made changes to 
         mappedItems = content.map(employee => {
             return (
                 <div className="static-gallery__item" key={employee.id} style={centeredGalleryItems}>
@@ -45,13 +47,8 @@ const StaticGallery = props => {
                     <span className="static-gallery__item--name">{employee.employee_name}</span>
                     <span className="static-gallery__item--position">{employee.employee_position}</span>
 
-                    {employee.executive_description && <hr></hr>}
-
-                    {employee.executive_description &&
-                        <p className="static-gallery__item--description">
-                            {employee.executive_description}
-                        </p>}
-
+                    {!createRows && <hr></hr>}
+                    {employee.employee_email && <span className="static-gallery__item--email">{employee.employee_email}</span>}
                 </div>
             )
         })

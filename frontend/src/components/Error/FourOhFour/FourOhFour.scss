@@ -1,0 +1,130 @@
+.four-oh-four {
+    display: flex;
+    margin: 6.5rem 0rem;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+
+    &__top,
+    &__down,
+    &__left,
+    &__right,
+    &__left-top,
+    &__left-down,
+    &__right-top,
+    &__right-down {
+        width: 10vmin;
+        height: 10vmin;
+        background-color: #f3c623;
+        position: absolute;
+    }
+
+    &__top {
+        top: -14vmin;
+        left: 9vmin;
+    }
+
+    &__down {
+        bottom: -14vmin;
+        left: 9vmin;
+    }
+
+    &__left {
+        left: -14vmin;
+        top: 9vmin;
+    }
+
+    &__right {
+        right: -14vmin;
+        top: 9vmin;
+    }
+
+    &__left-top {
+        transform: rotateZ(-45deg);
+        left: -8vmin;
+        top: -8vmin;
+    }
+
+    &__left-down {
+        transform: rotateZ(45deg);
+        left: -8vmin;
+        top: 25vmin;
+    }
+
+    &__right-top {
+        transform: rotateZ(45deg);
+        right: -8vmin;
+        top: -8vmin;
+    }
+
+    &__right-down {
+        transform: rotateZ(-45deg);
+        right: -8vmin;
+        top: 25vmin;
+    }
+}
+
+.cog-wheel1,
+.cog-wheel2 {
+    transform: scale(0.7);
+}
+
+.cog1,
+.cog2 {
+    width: 40vmin;
+    height: 40vmin;
+    border-radius: 50%;
+    border: 6vmin solid #f3c623;
+    position: relative;
+}
+
+.cog2 {
+    border: 6vmin solid #4f8a8b;
+}
+
+.cog2 .four-oh-four__top,
+.cog2 .four-oh-four__down,
+.cog2 .four-oh-four__left,
+.cog2 .four-oh-four__right,
+.cog2 .four-oh-four__left-top,
+.cog2 .four-oh-four__left-down,
+.cog2 .four-oh-four__right-top,
+.cog2 .four-oh-four__right-down {
+    background-color: #4f8a8b;
+}
+
+.cog2 {
+    position: relative;
+    left: -10.2vmin;
+    bottom: 10vmin;
+}
+
+h1 {
+    color: #142833;
+}
+
+.first-four {
+    position: relative;
+    left: 6vmin;
+    font-size: 40vmin;
+}
+
+.second-four {
+    position: relative;
+    right: 18vmin;
+    z-index: -1;
+    font-size: 40vmin;
+}
+
+.wrong-para {
+    font-family: "Montserrat", sans-serif;
+    position: absolute;
+    bottom: 15vmin;
+    padding: 3vmin 12vmin 3vmin 3vmin;
+    font-weight: 600;
+    color: #092532;
+    font-size: 2rem;
+}

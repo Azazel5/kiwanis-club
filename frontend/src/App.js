@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import axios from 'axios'
 
 import './App.scss'
@@ -13,7 +13,8 @@ import Events from './containers/Events/Events'
 import Projects from './containers/Projects/Projects'
 import AboutUs from './containers/AboutUs/AboutUs'
 import Footer from './components/Footer/footer'
-import Error from './components/Error/Error'
+import SimpleError from './components/Error/SimpleError/SimpleError'
+import FourOhFour from './components/Error/FourOhFour/FourOhFour'
 
 const App = () => {
     /** State variables **/
@@ -67,66 +68,70 @@ const App = () => {
 
     return (
         <>
-            <Route exact path="/">
-                <div className="app">
-
-                    <div className="app__image-container">
-                        <img src={headerPhoto} alt="header" className="app__image-container__image" />
-                    </div>
-
-                    <div className="app__purpose-container">
-                        <h2>Our Purpose</h2>
-                        <p>
-                            ESUN stands for Ex-Students Unity of Nepal Law College. With an aim of contributing whatever we
-                            have in our hands, a few likeminded friends of the same batch of Nepal Law College,
-                            Kathmandu (batch of 1993), gathered together to form a group under the name of Kiwanis Club of
-                            Kathmandu ESUN. This club was formed to serve children in need, and it is unique in doing so because
-                            of the members' experience in law i.e. it's a social club of lawyers dedicated to helping childen.
-                            <br /> <br />
-                            In Nepal, it has been repeatedly observed that the most neglected portion of the population is the children. Working
-                            parents face the pressures of earning a livelihood for their families, and they have no option other than putting their
-                            growing children in the same workplace; these children are then forced to assist their parents just to add a number of working hands.
-                            The government of Nepal has implemented free primary education up to fifth
-                            standard, and this has shown positive indications of increasing the number of school going children; however, there's still many children being deprived of a proper school education,
-                            due to the lack of basic educational materials, such as pens, pencils, school bags, or other stationery items.
-                            <br /> <br />
-                            The club hopes to support these children and their families by initiatives such as organizing the distribution of food,
-                            educational materials, or providing tuition fee to the needy children.
-                        </p>
-                    </div>
-
-                    <NewsGallery />
-
-                    {error ? <Error error={error} />: <HomeImageGallery gallery={gallery} />}
-                </div>
-
-            </Route>
-
-            <Route exact path="/news/:newsId">
-                <NewsStory />
-            </Route>
-
-            <Route exact path="/about">
-                <AboutUs />
-            </Route>
-
-            <Route exact path="/events">
-                <Events />
-            </Route>
-
-            <Route exact path="/projects">
-                <Projects />
-            </Route>
-
             {/* We want the navigation bar, footer, and menu overlay to be present in all pages, so
             we won't wrap it in a Route tag*/}
             <Navigation
                 navbarScrolled={navbarScrolled} menuClicked={menuClicked}
                 menuButtonClickHandler={menuButtonClickHandler} />
 
-            <Footer />
-
             <MenuOverlay menuClicked={menuClicked} menuButtonClickHandler={menuButtonClickHandler} />
+
+            <Switch>
+                <Route exact path="/">
+                    <div className="app">
+
+                        <div className="app__image-container">
+                            <img src={headerPhoto} alt="header" className="app__image-container__image" />
+                        </div>
+
+                        <div className="app__purpose-container">
+                            <h2>Our Purpose</h2>
+                            <p>
+                                ESUN stands for Ex-Students Unity of Nepal Law College. With an aim of contributing whatever we
+                                have in our hands, a few likeminded friends of the same batch of Nepal Law College,
+                                Kathmandu (batch of 1993), gathered together to form a group under the name of Kiwanis Club of
+                                Kathmandu ESUN. This club was formed to serve children in need, and it is unique in doing so because
+                                of the members' experience in law i.e. it's a social club of lawyers dedicated to helping childen.
+                                <br /> <br />
+                                In Nepal, it has been repeatedly observed that the most neglected portion of the population is the children. Working
+                                parents face the pressures of earning a livelihood for their families, and they have no option other than putting their
+                                growing children in the same workplace; these children are then forced to assist their parents just to add a number of working hands.
+                                The government of Nepal has implemented free primary education up to fifth
+                                standard, and this has shown positive indications of increasing the number of school going children; however, there's still many children being deprived of a proper school education,
+                                due to the lack of basic educational materials, such as pens, pencils, school bags, or other stationery items.
+                                <br /> <br />
+                                The club hopes to support these children and their families by initiatives such as organizing the distribution of food,
+                                educational materials, or providing tuition fee to the needy children.
+                            </p>
+                        </div>
+
+                        <NewsGallery />
+
+                        {error ? <SimpleError error={error} /> : <HomeImageGallery gallery={gallery} />}
+                    </div>
+
+                </Route>
+
+                <Route exact path="/news/:newsId">
+                    <NewsStory />
+                </Route>
+
+                <Route exact path="/about">
+                    <AboutUs />
+                </Route>
+
+                <Route exact path="/events">
+                    <Events />
+                </Route>
+
+                <Route exact path="/projects">
+                    <Projects />
+                </Route>
+
+                <Route exact><FourOhFour /></Route>
+            </Switch>
+
+            <Footer />
         </>
     );
 }

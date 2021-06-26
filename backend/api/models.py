@@ -7,6 +7,7 @@ class EmployeeBase(models.Model):
     employee_image = models.ImageField(upload_to='about_us')
     employee_name = models.CharField(max_length=255)
     employee_position = models.CharField(max_length=255)
+    employee_email = models.EmailField(max_length=255, blank=True)
 
     class Meta:
         abstract = True
@@ -50,8 +51,6 @@ class News(models.Model):
 
 
 class ExecutiveEmployee(EmployeeBase):
-    executive_description = models.CharField(max_length=255)
-
     def __str__(self):
         return self.employee_name
 
