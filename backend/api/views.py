@@ -13,13 +13,21 @@ from .serializers import (
 
 from collections import namedtuple
 from rest_framework import viewsets
-from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.pagination import PageNumberPagination
+
+
+class EventsPagination(PageNumberPagination):
+    ''' A pagination class for events '''
+
+    page_size = 3
+    page_size_query_param = 'page_size'
 
 
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
+    pagination_class = EventsPagination
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)

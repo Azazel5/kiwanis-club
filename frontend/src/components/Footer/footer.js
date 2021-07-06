@@ -9,43 +9,33 @@ const Footer = props => {
                 <div className="footer__top-child">
                     <h2>About</h2>
                     <hr className="solid"></hr>
-                    <a href="$#">Mission</a>
-                    <a href="$#">History</a>
-                    <a href="$#">Impact</a>
-                    <a href="$#">Leadership</a>
-                    <a href="$#">Values</a>
-                    <a href="$#">Partners</a>
-                    <a href="$#">Careers</a>
+                    <div><a href="/about">Mission</a></div>
+                    <div><a href="/about">Leadership</a></div>
                 </div>
-                <div className="footer__top-child">
-                    <h2>News</h2>
-                    <hr className="solid"></hr>
-                    <a href="$#">Stories</a>
-                    <a href="$#">Social Media</a>
-                    <a href="$#">Media Releases</a>
-                    <a href="$#">Share your story</a>
-                </div>
+
                 <div className="footer__top-child">
                     <h2>Contact</h2>
                     <hr className="solid"></hr>
-                    <div className="social-icon-container">
-                        <a href="$#">
-                            <svg className="social-icon-container__svg social-icon-container__svg--social">
-                                <use xlinkHref={`${Sprite}#icon-facebook`}></use>
-                            </svg>
-                        </a>
+                    <div>
+                        <div className="social-icon-container">
+                            <a href="https://www.facebook.com/profile.php?id=100054222051873">
+                                <svg className="social-icon-container__svg social-icon-container__svg--social">
+                                    <use xlinkHref={`${Sprite}#icon-facebook`}></use>
+                                </svg>
+                            </a>
 
-                        <a href="$#">
-                            <svg className="social-icon-container__svg social-icon-container__svg--social">
-                                <use xlinkHref={`${Sprite}#icon-instagram`}></use>
-                            </svg>
-                        </a>
+                            <a href="/about">
+                                <svg className="social-icon-container__svg social-icon-container__svg--social">
+                                    <use xlinkHref={`${Sprite}#icon-instagram`}></use>
+                                </svg>
+                            </a>
 
-                        <a href="$#">
-                            <svg className="social-icon-container__svg social-icon-container__svg--social">
-                                <use xlinkHref={`${Sprite}#icon-twitter`}></use>
-                            </svg>
-                        </a>
+                            <a href="/about">
+                                <svg className="social-icon-container__svg social-icon-container__svg--social">
+                                    <use xlinkHref={`${Sprite}#icon-twitter`}></use>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
 
                     <div className="contact-phone-container">
@@ -61,7 +51,7 @@ const Footer = props => {
             </div>
 
             <div className="footer__bottom">
-                COPYRIGHT &copy; 2021 KIWANIS NEPAL. ALL RIGHTS RESERVED.
+                COPYRIGHT &copy; 2021 KIWANIS KATHMANDU. ALL RIGHTS RESERVED.
             </div>
         </footer>
     )
