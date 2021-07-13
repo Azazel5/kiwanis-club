@@ -20,8 +20,9 @@ from django.conf.urls.static import static
 from django.urls.conf import include
 
 urlpatterns = [
+    path('', include('serve.urls')),
     path('admin/', admin.site.urls),
-    path('', include('api.urls'))
+    path('api/', include('api.urls'))
 ]
 
 if settings.DEBUG:

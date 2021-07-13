@@ -25,7 +25,7 @@ class EventsPagination(PageNumberPagination):
 
 
 class EventViewSet(viewsets.ModelViewSet):
-    queryset = Event.objects.all()
+    queryset = Event.objects.all().order_by('-event_date')
     serializer_class = EventSerializer
     pagination_class = EventsPagination
 
@@ -34,7 +34,7 @@ class EventViewSet(viewsets.ModelViewSet):
 
 
 class ProjectViewSet(viewsets.ModelViewSet):
-    queryset = Project.objects.all()
+    queryset = Project.objects.all().order_by('-project_date')
     serializer_class = ProjectSerializer
 
     def perform_create(self, serializer):

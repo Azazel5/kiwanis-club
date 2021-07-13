@@ -50,7 +50,7 @@ const App = () => {
     }, [navbarScrollStateHandler])
 
     useEffect(() => {
-        axios.get('http://localhost:8000/gallery/')
+        axios.get('http://localhost:8000/api/gallery/')
             .then(response => {
                 const updatedResponse = response.data.map(item => {
                     item['thumbnailClass'] = "image-gallery__thumbnail"

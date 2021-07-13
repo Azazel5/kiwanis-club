@@ -13,7 +13,7 @@ const NewsGallery = props => {
 
     /** Effects */
     useEffect(() => {
-        axios.get('http://localhost:8000/news/')
+        axios.get('http://localhost:8000/api/news/')
             .then(response => {
                 setNewsJson(response.data)
             })

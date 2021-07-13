@@ -16,7 +16,7 @@ const Projects = props => {
 
     /** Effects */
     useEffect(() => {
-        axios.get('http://localhost:8000/projects/')
+        axios.get('http://localhost:8000/api/projects/')
             .then(response => setProjectJson(response.data))
             .catch(error => setError(error.message))
     }, [])
@@ -53,7 +53,7 @@ const Projects = props => {
                 <ImageModal closeModalHandler={closeModalHandler} modalBoxRef={modalBoxRef}
                     selectedProject={modalOpen.selectedProject} />}
 
-            {error ? <SimpleError error={error} />: projects && projects}
+            {error ? <SimpleError error={error} /> : projects && projects}
         </div>
     )
 }

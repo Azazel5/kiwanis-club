@@ -13,7 +13,7 @@ const NewsStory = props => {
 
     /** Effects */
     useEffect(() => {
-        axios.get(`http://localhost:8000/news/${newsId}/`)
+        axios.get(`http://localhost:8000/api/news/${newsId}/`)
             .then(response => {
                 setStory(response.data)
             })
