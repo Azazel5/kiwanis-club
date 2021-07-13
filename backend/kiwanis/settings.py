@@ -30,7 +30,7 @@ SECRET_KEY = env('KIWANIS_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['django-env.eba-d3kwazd8.ap-south-1.elasticbeanstalk.com']
 
 
 # Application definition
