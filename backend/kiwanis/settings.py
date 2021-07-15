@@ -30,7 +30,7 @@ SECRET_KEY = env('KIWANIS_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['backend-prod.eba-yutmxpkf.ap-south-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['kiwanisnepali.org']
 
 
 # Application definition
@@ -162,8 +162,8 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -184,6 +184,7 @@ if DEBUG:
     REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES']\
         .append('rest_framework.renderers.BrowsableAPIRenderer')
 
+# Okay to have API requests coming from here
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
@@ -201,3 +202,4 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 # you run `collectstatic`).
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'kiwanis.storage_backends.MediaStorage'

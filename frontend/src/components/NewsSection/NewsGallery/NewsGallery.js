@@ -13,7 +13,7 @@ const NewsGallery = props => {
 
     /** Effects */
     useEffect(() => {
-        axios.get('http://backend-prod.eba-yutmxpkf.ap-south-1.elasticbeanstalk.com/api/news/')
+        axios.get('https://kiwanisnepali.org/api/news/')
             .then(response => {
                 setNewsJson(response.data)
             })
