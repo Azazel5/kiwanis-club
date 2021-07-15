@@ -14,7 +14,7 @@ const AboutUs = props => {
 
     /** Effects */
     useEffect(() => {
-        axios.get('https://kiwanisnepali.org/api/about_us/')
+        axios.get('https://www.kiwanisnepali.org/api/about_us/')
             .then(response => setEmployees(response.data))
             .catch(error => setError(error.message))
     }, [])
