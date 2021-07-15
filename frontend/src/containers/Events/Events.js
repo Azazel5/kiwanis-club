@@ -18,7 +18,7 @@ const Events = props => {
 
     /** Effects */
     useEffect(() => {
-        axios.get('http://localhost:8000/api/events/')
+        axios.get('http://backend-prod.eba-yutmxpkf.ap-south-1.elasticbeanstalk.com/api/events/')
             .then(response => setEventJson(response.data))
             .catch(error => setError(error.message))
     }, [])

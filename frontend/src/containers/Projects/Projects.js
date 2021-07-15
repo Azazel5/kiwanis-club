@@ -16,7 +16,7 @@ const Projects = props => {
 
     /** Effects */
     useEffect(() => {
-        axios.get('http://localhost:8000/api/projects/')
+        axios.get('http://backend-prod.eba-yutmxpkf.ap-south-1.elasticbeanstalk.com/api/projects/')
             .then(response => setProjectJson(response.data))
             .catch(error => setError(error.message))
     }, [])
