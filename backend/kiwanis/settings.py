@@ -192,13 +192,18 @@ AWS_STORAGE_BUCKET_NAME = 'elasticbeanstalk-ap-south-1-637856909234'
 AWS_S3_REGION_NAME = 'ap-south-1'
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_REGION_NAME}.s3.amazonaws.com'
+AWS_LOCATION = 'static'
+
 # Tell django-storages the domain to use to refer to static files.
 
 # Tell the staticfiles app to use S3Boto3 storage when writing the collected static files (when
 # you run `collectstatic`).
-STATIC_URL = 'https://elasticbeanstalk-ap-south-1-637856909234.s3.ap-south-1.amazonaws.com/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+#STATIC_URL = 'https://elasticbeanstalk-ap-south-1-637856909234.s3.ap-south-1.amazonaws.com/static/'
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'build', 'static'),
+]
 
 MEDIAFILES_LOCATION = 'media'
 STATICFILES_STORAGE = 'kiwanis.static_backends.StaticStorage'
