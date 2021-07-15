@@ -103,12 +103,12 @@ if 'RDS_DB_NAME' in os.environ:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'kiwanis',
-            'USER': 'kiwanis',
-            'PASSWORD': 'kiwanis',
-            'HOST': 'localhost',
-            'PORT': '5432',
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': env('KIWANIS_DB_NAME'),
+            'USER': env('KIWANIS_DB_USERNAME'),
+            'PASSWORD': env('KIWANIS_DB_PASSWORD'),
+            'HOST': env('KIWANIS_HOST'),
+            'PORT': env('KIWANIS_PORT'),
         }
     }
 
