@@ -187,26 +187,21 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
 
-# AWS bucket settings
-AWS_STORAGE_BUCKET_NAME = 'elasticbeanstalk-ap-south-1-637856909234'
-AWS_S3_REGION_NAME = 'ap-south-1'
+
+# aws settings
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_LOCATION = 'static'
+AWS_STORAGE_BUCKET_NAME = 'elasticbeanstalk-ap-south-1-637856909234'
+AWS_DEFAULT_ACL = None
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+# s3 static settings
+STATIC_LOCATION = 'static'
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+STATICFILES_STORAGE = 'kiwanis.storage_backends.StaticStorage'
+# s3 public media settings
+PUBLIC_MEDIA_LOCATION = 'media'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
+DEFAULT_FILE_STORAGE = 'kiwanis.storage_backends.PublicMediaStorage'
 
-# Tell django-storages the domain to use to refer to static files.
-
-# Tell the staticfiles app to use S3Boto3 storage when writing the collected static files (when
-# you run `collectstatic`).
-#STATIC_URL = 'https://elasticbeanstalk-ap-south-1-637856909234.s3.ap-south-1.amazonaws.com/static/'
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'build', 'static'),
-]
-
-MEDIAFILES_LOCATION = 'media'
-STATICFILES_STORAGE = 'kiwanis.static_backends.StaticStorage'
-DEFAULT_FILE_STORAGE = 'kiwanis.storage_backends.MediaStorage'
-
-# https://elasticbeanstalk-ap-south-1-637856909234.s3.ap-south-1.amazonaws.com/static/js/main.ec150df8.chunk.js?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDgaCXVzLWVhc3QtMiJIMEYCIQDKPNAtt%2Ba9abRg8A28Yu7LGK8DRw1WNrrBPB4vTH6XnQIhAOW2yNg0N2I8XwJm8H%2B9mjyK7rq2Qjq9hvQzbwD9mr%2BQKvYCCDEQARoMNjM3ODU2OTA5MjM0IgzqUzhH9VtqB5jTtj8q0wJahffX8SBMY4yq4x4kju1JpILMsTwsg0jQzGSbyNZB38L%2BQIyxRjkUvGHKz3ylIzwkbXFfR2nTD9L5FexnSN43lPMWwYEz93AwDZMlPFPJ5%2FWBOVNbNpn5Bt1Z6EzST%2BxozzvNvqzMO2TSdqX6iNwI3MR7CN6bibgs%2FZP%2Fw5KtSc6NrWdW1FRWwuPd2kEKi07FM88NmoANWtN0eyM7H13eHkfDFh6%2BCuAXcdABM3o8u3AJywEIFJ6Ha4qmar26QJIXZUPNaGn1pKG51F3R5ifG%2FP9j9mtsbciG8EP3JgeR%2FFSlzXVhtgM5eBASWmZyhvNMt%2FU8Ir1NrWMPPsCwtscgTAZ8Q5jswDCPrNw9CW9GN7t0vq1IlQjnlLT%2FM0MuRl56DsxUJCns34klvNqEC4rg3cZFvcRxqPyF0fPCCV1fSBcoN6mBrwfLAUqzH1w5HzOTi14wn9jAhwY6sgLoE%2B%2B%2BeatWIXOf%2F3nvsF5y0G8RZDIOIsdViSyV4BI2IQrXdFqWoDfG%2Fmjy2kEHbgP4n1LHh7CSgI0QlKntWgmnw2DivbCv0YOvoq3OALnhxeVWvi9bowKMbpInsrv%2BkGrqQa3Dw%2B3po2FpA2UtaB04swcmG6ygO1PQFMN0Ymdrda1FEW3K6ntSidf6urrYhI%2BiREZRNNx5U6ZPfsEGjOwjtK7wEwQhjdB4%2F65uN%2Fcf8AYTVpLUVi1%2FNsz0GH0t9Mlgwk%2B7cF7KZIBxhBOHRTojh2AYaeS1fBFQjd9T8wGKdz37D%2FtnrucwsnuuRjO0uc60PEpQHBDCJqc8oIzmThpIXckVBLxS4IzYPfpwL0WZxfZibvQzKlywlRdf%2BBprBD976pNks9QYBsJ2DrtVzDlNhzw%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20210715T232232Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAZJAZ4A6ZI7EHI7WB%2F20210715%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=73ccced6a886835a23f4624fb806be606707ac15a063db03baaf794627628b29
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
