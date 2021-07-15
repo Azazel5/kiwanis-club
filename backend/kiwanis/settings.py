@@ -30,7 +30,8 @@ SECRET_KEY = env('KIWANIS_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['kiwanisnepali.org', 'backend-prod.eba-yutmxpkf.ap-south-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['*kiwanisnepali.org', 'kiwanisnepali.org',
+                 'backend-prod.eba-yutmxpkf.ap-south-1.elasticbeanstalk.com']
 
 
 # Application definition
