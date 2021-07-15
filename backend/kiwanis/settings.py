@@ -89,17 +89,28 @@ WSGI_APPLICATION = 'kiwanis.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('KIWANIS_DB_NAME'),
-        'USER': env('KIWANIS_DB_USERNAME'),
-        'PASSWORD': env('KIWANIS_DB_PASSWORD'),
-        'HOST': env('KIWANIS_HOST'),
-        'PORT': env('KIWANIS_PORT'),
+if 'RDS_DB_NAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': env('KIWANIS_DB_NAME'),
+            'USER': env('KIWANIS_DB_USERNAME'),
+            'PASSWORD': env('KIWANIS_DB_PASSWORD'),
+            'HOST': env('KIWANIS_HOST'),
+            'PORT': env('KIWANIS_PORT'),
+        }
+    }
 
 
 # Password validation
