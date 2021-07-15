@@ -198,6 +198,7 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 # Tell the staticfiles app to use S3Boto3 storage when writing the collected static files (when
 # you run `collectstatic`).
+STATIC_URL = 'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
 MEDIAFILES_LOCATION = 'media'
-STATICFILES_STORAGE = 'kiwanis.custom_storages.StaticStorage'
+STATICFILES_STORAGE = 'kiwanis.static_backends.StaticStorage'
 DEFAULT_FILE_STORAGE = 'kiwanis.storage_backends.MediaStorage'
