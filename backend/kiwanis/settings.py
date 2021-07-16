@@ -210,7 +210,7 @@ CORS_ORIGIN_WHITELIST = [
 # DEFAULT_FILE_STORAGE = 'kiwanis.storage_backends.MediaStorage'
 
 AWS_STORAGE_BUCKET_NAME = 'elasticbeanstalk-ap-south-1-637856909234'
-AWS_S3_REGION_NAME = 'ap-south-1'  # e.g. us-east-2
+AWS_S3_REGION_NAME = 'ap-south-1'
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 
