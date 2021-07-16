@@ -5,6 +5,7 @@ import axios from 'axios'
 // Make a transparent image for Kiwanis about us page to replace here
 import StaticGallery from '../../components/StaticGallery/StaticGallery'
 import SimpleError from '../../components/Error/SimpleError/SimpleError'
+import RenderSmoothImage from '../../hooks/RenderSmoothImage/RenderSmoothImage'
 
 const AboutUs = props => {
     /** States and hooks */
@@ -13,7 +14,7 @@ const AboutUs = props => {
 
     /** Effects */
     useEffect(() => {
-        axios.get('https://www.kiwanisnepali.org/api/about_us/')
+        axios.get('https://kiwanisnepali.org/api/about_us/')
             .then(response => setEmployees(response.data))
             .catch(error => setError(error.message))
     }, [])
@@ -25,7 +26,7 @@ const AboutUs = props => {
                     This is <span className="about-us__flexbox__child--span">Kiwanis</span>
                 </h2>
                 <div className="about-us__flexbox__child horizontal-flex">
-                    <img src={`${process.env.REACT_APP_AWS_MEDIA_DIRNAME}ex.f3b723f2.png`} alt="about us" className="horizontal-flex__img" />
+                    <RenderSmoothImage src={`${process.env.REACT_APP_AWS_MEDIA_DIRNAME}ex.f3b723f2.png`} alt="about us" className="horizontal-flex__img" />
                     <p className="horizontal-flex__p">
                         Kiwanis International is a global community of clubs, members and partners dedicated to improving the lives of children one community at a time. <br /> <br />Today, we stand with more than 550,000 members from K-Kids to Key Club to Kiwanis and many ages in between in 80 countries and geographic areas. Each community has different needs, and Kiwanis empowers members to pursue creative ways to serve the needs of children, such as fighting hunger, improving literacy and offering guidance.
 

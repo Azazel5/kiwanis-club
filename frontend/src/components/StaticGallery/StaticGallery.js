@@ -1,5 +1,7 @@
 import './StaticGallery.scss'
 
+import RenderSmoothImage from '../../hooks/RenderSmoothImage/RenderSmoothImage'
+
 const StaticGallery = props => {
     /** Props objects **/
     const { sizeOfGalleryCard, content, gridColor, createRows } = props
@@ -43,7 +45,7 @@ const StaticGallery = props => {
         mappedItems = content.map(employee => {
             return (
                 <div className="static-gallery__item" key={employee.id} style={centeredGalleryItems}>
-                    <img src={employee.employee_image} alt="member" className="static-gallery__item--img" style={imageStyles} />
+                    <RenderSmoothImage src={employee.employee_image} alt="member" className="static-gallery__item--img" inlineStyles={imageStyles}/>
                     <span className="static-gallery__item--name">{employee.employee_name}</span>
                     <span className="static-gallery__item--position">{employee.employee_position}</span>
 

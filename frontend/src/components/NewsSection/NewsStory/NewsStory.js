@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import './NewsStory.scss'
 import SimpleError from '../../Error/SimpleError/SimpleError';
+import RenderSmoothImage from '../../../hooks/RenderSmoothImage/RenderSmoothImage';
 
 const NewsStory = props => {
     /** States and hooks */
@@ -13,7 +14,7 @@ const NewsStory = props => {
 
     /** Effects */
     useEffect(() => {
-        axios.get(`https://www.kiwanisnepali.org/api/news/${newsId}/`)
+        axios.get(`https://kiwanisnepali.org/api/news/${newsId}/`)
             .then(response => {
                 setStory(response.data)
             })
@@ -26,7 +27,7 @@ const NewsStory = props => {
             <>
                 <h1 className="news-story__child news-story__title">{story.news_title}</h1>
                 <div className="news-story__child news-story__img">
-                    <img src={story.news_image} alt="story" />
+                    <RenderSmoothImage src={story.news_image} alt="story" />
                 </div>
                 <p>{story.news_description}</p>
             </>

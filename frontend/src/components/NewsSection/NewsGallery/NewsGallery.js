@@ -4,6 +4,7 @@ import './NewsGallery.scss'
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import SimpleError from '../../Error/SimpleError/SimpleError';
+import RenderSmoothImage from '../../../hooks/RenderSmoothImage/RenderSmoothImage'
 
 const NewsGallery = props => {
     /** States and hooks */
@@ -13,7 +14,7 @@ const NewsGallery = props => {
 
     /** Effects */
     useEffect(() => {
-        axios.get('https://www.kiwanisnepali.org/api/news/')
+        axios.get('https://kiwanisnepali.org/api/news/')
             .then(response => {
                 setNewsJson(response.data)
             })
@@ -30,7 +31,7 @@ const NewsGallery = props => {
                         <span>{news.news_genre}</span>
                         <h2>{news.news_title}</h2>
                     </div>
-                    <img src={news.news_image} alt="news" className="news-section__img" />
+                    <RenderSmoothImage src={news.news_image} alt="news" className="news-section__img" />
                 </div>
             )
         })

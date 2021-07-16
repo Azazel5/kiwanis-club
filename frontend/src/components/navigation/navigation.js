@@ -1,6 +1,7 @@
 import React from 'react'
 import './navigation.scss'
 import { useHistory, useLocation } from 'react-router-dom'
+import RenderSmoothImage from '../../hooks/RenderSmoothImage/RenderSmoothImage'
 
 const Navigation = props => {
     /** Third party hooks **/
@@ -32,8 +33,12 @@ const Navigation = props => {
                     <img src={`${process.env.REACT_APP_AWS_MEDIA_DIRNAME}kiwanis-logo.png`} alt="kiwanis logo" />
 
                     <div className="logos">
-                        <div className="logos__box"><img src={`${process.env.REACT_APP_AWS_MEDIA_DIRNAME}kiwanis-title.png`} alt="kiwanis title" /></div>
-                        <div className="logos__box logos__box--isun"><img src={`${process.env.REACT_APP_AWS_MEDIA_DIRNAME}isun.cbb929ff.png`} alt="isun logo" /></div>
+                        <div className="logos__box">
+                            <RenderSmoothImage src={`${process.env.REACT_APP_AWS_MEDIA_DIRNAME}kiwanis-title.png`} alt="kiwanis title" className="" />
+                        </div>
+                        <div className="logos__box logos__box--isun">
+                            <RenderSmoothImage src={`${process.env.REACT_APP_AWS_MEDIA_DIRNAME}isun.cbb929ff.png`} alt="isun logo" className="" />
+                        </div>
                     </div>
 
                 </div>

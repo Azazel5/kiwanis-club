@@ -6,6 +6,7 @@
     align-items: center;
     margin: 6.5rem 3rem;
     font-size: 3rem;
+    min-height: 100vh;
 
     // Change this to a more specific selector because the modal gets a margin too if not
     &__row {

@@ -7,6 +7,7 @@
     grid-auto-rows: 55rem;
     gap: 3rem;
     margin: 6.5rem 3rem;
+    min-height: 100vh;
 
     @media screen and (max-width: $breakpointSmallPhone) {
         grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));

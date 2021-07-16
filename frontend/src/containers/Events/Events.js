@@ -5,6 +5,7 @@ import './Events.scss'
 import MapModal from '../../components/Modals/MapModal/MapModal'
 import SimpleError from '../../components/Error/SimpleError/SimpleError';
 import Loading from '../../components/Loading/Loading';
+import RenderSmoothImage from '../../hooks/RenderSmoothImage/RenderSmoothImage';
 
 const Events = props => {
     /** States */
@@ -18,7 +19,7 @@ const Events = props => {
 
     /** Effects */
     useEffect(() => {
-        axios.get('https://www.kiwanisnepali.org/api/events/')
+        axios.get('https://kiwanisnepali.org/api/events/')
             .then(response => setEventJson(response.data))
             .catch(error => setError(error.message))
     }, [])
@@ -50,7 +51,7 @@ const Events = props => {
     if (eventJson) {
         events = eventJson.results.map(event => (
             <div className="events__row" onClick={() => openModalHandler(event)} key={event.id}>
-                <img src={event.event_image} alt="event" className="events__row__child events__row__child--img" />
+                <RenderSmoothImage src={event.event_image} alt="event" className="events__row__child events__row__child--img" />
                 <div className="events__row__child events__row__child--text">
                     <h3 className="event-name">{event.event_name}</h3>
                     <span className="event-date">{event.event_date}</span>

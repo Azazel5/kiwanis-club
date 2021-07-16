@@ -1,4 +1,5 @@
 import './ProjectCard.scss'
+import RenderSmoothImage from '../../hooks/RenderSmoothImage/RenderSmoothImage'
 
 const ProjectCard = props => {
     const { project, openModalHandler } = props
@@ -11,7 +12,7 @@ const ProjectCard = props => {
 
     return (
         <div className="project-card" onClick={onProjectClickHandler}>
-            <img src={project.project_image} alt="project" className="project-card__img" />
+            <RenderSmoothImage src={project.project_image} alt="project" className="project-card__img" />
             <div className="project-card__textcontainer">
                 <h3 className="project-card__textcontainer--heading">{project.project_title}</h3>
                 <span className="project-card__textcontainer--date">{project.project_date}</span>

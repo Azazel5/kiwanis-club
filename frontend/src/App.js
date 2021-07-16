@@ -14,6 +14,7 @@ import AboutUs from './containers/AboutUs/AboutUs'
 import Footer from './components/Footer/footer'
 import SimpleError from './components/Error/SimpleError/SimpleError'
 import FourOhFour from './components/Error/FourOhFour/FourOhFour'
+import RenderSmoothImage from './hooks/RenderSmoothImage/RenderSmoothImage'
 
 const App = () => {
     /** State variables **/
@@ -49,7 +50,7 @@ const App = () => {
     }, [navbarScrollStateHandler])
 
     useEffect(() => {
-        axios.get('https://www.kiwanisnepali.org/api/gallery/')
+        axios.get('https://kiwanisnepali.org/api/gallery/')
             .then(response => {
                 const updatedResponse = response.data.map(item => {
                     item['thumbnailClass'] = "image-gallery__thumbnail"
@@ -80,7 +81,7 @@ const App = () => {
                     <div className="app">
 
                         <div className="app__image-container">
-                            <img src={`${process.env.REACT_APP_AWS_MEDIA_DIRNAME}header-photo.051909b9.jpeg`} alt="header" className="app__image-container__image" />
+                            <RenderSmoothImage src={`${process.env.REACT_APP_AWS_MEDIA_DIRNAME}header-photo.051909b9.jpeg`} alt="header" className="app__image-container__image" />
                         </div>
 
                         <div className="app__purpose-container">
