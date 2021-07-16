@@ -80,7 +80,7 @@ const App = () => {
                     <div className="app">
 
                         <div className="app__image-container">
-                            <img src={'/static/media/header-photo.051909b9.jpeg'} alt="header" className="app__image-container__image" />
+                            <img src={`${process.env.REACT_APP_AWS_MEDIA_DIRNAME}header-photo.051909b9.jpeg`} alt="header" className="app__image-container__image" />
                         </div>
 
                         <div className="app__purpose-container">
