@@ -31,7 +31,7 @@ SECRET_KEY = env('KIWANIS_SECRET_KEY')
 DEBUG = False
 
 # Similar to the SSL certificate
-ALLOWED_HOSTS = ['.kiwanisnepali.org', 'kiwanisnepali.org', '*']
+ALLOWED_HOSTS = ['.kiwanisnepali.org', '.kiwanisnepali.org.']
 
 
 # Application definition
