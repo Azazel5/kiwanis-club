@@ -14,7 +14,7 @@ const NewsStory = props => {
 
     /** Effects */
     useEffect(() => {
-        axios.get(`https://kiwanisnepali.org/api/news/${newsId}/`)
+        axios.get(`https://www.kiwanisnepali.org/api/news/${newsId}/`)
             .then(response => {
                 setStory(response.data)
             })

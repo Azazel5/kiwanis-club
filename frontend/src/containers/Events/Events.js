@@ -19,7 +19,7 @@ const Events = props => {
 
     /** Effects */
     useEffect(() => {
-        axios.get('https://kiwanisnepali.org/api/events/')
+        axios.get('https://www.kiwanisnepali.org/api/events/')
             .then(response => setEventJson(response.data))
             .catch(error => setError(error.message))
     }, [])

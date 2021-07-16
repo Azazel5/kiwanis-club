@@ -14,7 +14,7 @@ const NewsGallery = props => {
 
     /** Effects */
     useEffect(() => {
-        axios.get('https://kiwanisnepali.org/api/news/')
+        axios.get('https://www.kiwanisnepali.org/api/news/')
             .then(response => {
                 setNewsJson(response.data)
             })

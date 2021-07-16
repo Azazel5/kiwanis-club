@@ -31,10 +31,7 @@ SECRET_KEY = env('KIWANIS_SECRET_KEY')
 DEBUG = False
 
 # Similar to the SSL certificate
-ALLOWED_HOSTS = [
-    '.kiwanisnepali.org', 'kiwanisnepali.org',
-    'backend-prod.eba-yutmxpkf.ap-south-1.elasticbeanstalk.com', '*'
-]
+ALLOWED_HOSTS = ['.kiwanisnepali.org', 'kiwanisnepali.org',]
 
 
 # Application definition

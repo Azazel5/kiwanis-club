@@ -50,7 +50,7 @@ const App = () => {
     }, [navbarScrollStateHandler])
 
     useEffect(() => {
-        axios.get('https://kiwanisnepali.org/api/gallery/')
+        axios.get('https://www.kiwanisnepgali.or/api/gallery/')
             .then(response => {
                 const updatedResponse = response.data.map(item => {
                     item['thumbnailClass'] = "image-gallery__thumbnail"
