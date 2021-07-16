@@ -32,8 +32,8 @@ DEBUG = False
 
 # Similar to the SSL certificate
 ALLOWED_HOSTS = [
-    '.kiwanisnepali.org', 'kiwanisnepali.org.',
-    'backend-prod.eba-yutmxpkf.ap-south-1.elasticbeanstalk.com'
+    '.kiwanisnepali.org', 'kiwanisnepali.org',
+    'backend-prod.eba-yutmxpkf.ap-south-1.elasticbeanstalk.com', '*'
 ]
 
 
