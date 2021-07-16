@@ -32,9 +32,8 @@ DEBUG = False
 
 # Similar to the SSL certificate
 ALLOWED_HOSTS = [
-    # '.kiwanisnepali.org', 'kiwanisnepali.org',
-    # 'backend-prod.eba-yutmxpkf.ap-south-1.elasticbeanstalk.com', '*'
-    '*',
+    '.kiwanisnepali.org', 'kiwanisnepali.org',
+    'backend-prod.eba-yutmxpkf.ap-south-1.elasticbeanstalk.com'
 ]
 
 
@@ -191,11 +190,10 @@ if DEBUG:
 
 # Okay to have API requests coming from here
 CORS_ORIGIN_WHITELIST = [
-    # 'http://www.kiwanisnepali.org',
-    # 'https://www.kiwanisnepali.org',
-    # 'http://kiwanisnepali.org',
-    # 'https://kiwanisnepali.org',
-    'http://localhost:3000',
+    'http://www.kiwanisnepali.org',
+    'https://www.kiwanisnepali.org',
+    'http://kiwanisnepali.org',
+    'https://kiwanisnepali.org',
 ]
 
 # AWS bucket settings
