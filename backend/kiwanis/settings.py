@@ -192,6 +192,8 @@ if DEBUG:
 CORS_ORIGIN_WHITELIST = [
     'http://www.kiwanisnepali.org',
     'https://www.kiwanisnepali.org',
+    'http://kiwanisnepali.org',
+    'https://kiwanisnepali.org',
 ]
 
 # AWS bucket settings
