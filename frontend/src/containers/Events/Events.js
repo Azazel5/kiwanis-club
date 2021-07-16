@@ -84,7 +84,7 @@ const Events = props => {
 
             {/* If there is error, loading button isn't clicked, and there are more events to load, show 
             the load more events button  */}
-            {!error && (!eventJson || eventJson.next) && !loadingClicked && <button className="events__button" onClick={loadingButtonClickHandler}>
+            {!error && (eventJson && eventJson.next) && !loadingClicked && <button className="events__button" onClick={loadingButtonClickHandler}>
                 Load More Events
             </button>}
 

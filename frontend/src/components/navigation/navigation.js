@@ -2,10 +2,6 @@ import React from 'react'
 import './navigation.scss'
 import { useHistory, useLocation } from 'react-router-dom'
 
-import logo from '../../assets/Images/kiwanis-logo.png'
-import isun from '../../assets/Images/isun.png'
-import title from '../../assets/Images/kiwanis-title.png'
-
 const Navigation = props => {
     /** Third party hooks **/
     const location = useLocation()
@@ -33,11 +29,11 @@ const Navigation = props => {
                     className="navigation-bar__flexbox__child navigation-bar__flexbox__child--logo"
                     onClick={() => history.push("/")}
                 >
-                    <img src={logo} alt="kiwanis logo" />
+                    <img src={`${process.env.REACT_APP_AWS_MEDIA_DIRNAME}kiwanis-logo.png`} alt="kiwanis logo" />
 
                     <div className="logos">
-                        <div className="logos__box"><img src={title} alt="kiwanis title" /></div>
-                        <div className="logos__box logos__box--isun"><img src={isun} alt="isun logo" /></div>
+                        <div className="logos__box"><img src={`${process.env.REACT_APP_AWS_MEDIA_DIRNAME}kiwanis-title.png`} alt="kiwanis title" /></div>
+                        <div className="logos__box logos__box--isun"><img src={`${process.env.REACT_APP_AWS_MEDIA_DIRNAME}isun.cbb929ff.png`} alt="isun logo" /></div>
                     </div>
 
                 </div>
