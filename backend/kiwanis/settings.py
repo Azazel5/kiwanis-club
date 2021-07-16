@@ -190,8 +190,9 @@ if DEBUG:
 
 # Okay to have API requests coming from here
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-    'http://localhost:8000',
+    'http://www.kiwanisnepali.org',
+    'https://www.kiwanisnepali.org',
+    'http://localhost:8000'
 ]
 
 # # AWS bucket settings
