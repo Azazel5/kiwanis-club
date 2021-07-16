@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import './App.scss'
 import Navigation from './components/navigation/navigation'
+import headerPhoto from './assets/Images/header-photo.jpeg'
 import MenuOverlay from './components/MenuOverlay/MenuOverlay'
 import NewsGallery from './components/NewsSection/NewsGallery/NewsGallery'
 import NewsStory from './components/NewsSection/NewsStory/NewsStory'
@@ -80,7 +81,7 @@ const App = () => {
                     <div className="app">
 
                         <div className="app__image-container">
-                            <img src={`${process.env.REACT_APP_AWS_MEDIA_DIRNAME}header-photo.051909b9.jpeg`} alt="header" className="app__image-container__image" />
+                            <img src={headerPhoto} alt="header" className="app__image-container__image" />
                         </div>
 
                         <div className="app__purpose-container">
