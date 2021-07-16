@@ -33,7 +33,7 @@ DEBUG = False
 # Similar to the SSL certificate
 ALLOWED_HOSTS = [
     '.kiwanisnepali.org', 'kiwanisnepali.org',
-    'backend-prod.eba-yutmxpkf.ap-south-1.elasticbeanstalk.com'
+    'backend-prod.eba-yutmxpkf.ap-south-1.elasticbeanstalk.com', '*'
 ]
 
 
@@ -156,6 +156,7 @@ USE_TZ = True
 
 # STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build', 'static'),
 ]
@@ -190,6 +191,7 @@ if DEBUG:
 # Okay to have API requests coming from here
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
+    'http://localhost:8000',
 ]
 
 # # AWS bucket settings
@@ -221,3 +223,5 @@ STATICFILES_STORAGE = 'kiwanis.custom_storages.StaticStorage'
 
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'kiwanis.custom_storages.MediaStorage'
+
+STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
